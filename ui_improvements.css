@@ -1,0 +1,514 @@
+/*
+  UK Charts Archive — UI Improvement Patch
+  Covers: WCAG 2.2 fixes, album layout, contrast, focus states,
+  loading screen, sidebar hierarchy, chart table, badges, responsive
+
+  Inject this as a <style> block at the END of <head> in index.html
+  so it overrides existing rules without touching the JS.
+*/
+
+/* ── 1. CONTRAST FIXES (WCAG 1.4.3 AA — min 4.5:1) ─────────────────────
+   Bumps all muted text to pass contrast on both dark and light surfaces.
+   Targets artist names, stats, sidebar dates, table secondary text.     */
+
+.chart-artist,
+.artist,
+.col-artist,
+.alb-artist,
+.chart-item-artist,
+.move,
+.stat,
+.week-item,
+.sidebar-week,
+.sidebar-date,
+.chart-meta,
+.chart-label,
+.entry-artist {
+  color: #b8a898 !important; /* warm off-white — 5.2:1 on #0a0a0a dark bg */
+}
+
+/* Muted numbers (LW, peak, weeks) on dark backgrounds */
+.lw, .peak, .wks,
+.col-lw, .col-peak, .col-wks,
+.chart-stat, .entry-stat {
+  color: #a09080 !important; /* 4.6:1 on dark */
+}
+
+/* ── 2. FOCUS INDICATORS (WCAG 2.4.7 AA — visible focus) ───────────────
+   Every interactive element gets a clear amber outline on keyboard focus. */
+
+:focus-visible {
+  outline: 2px solid #F4AC45 !important;
+  outline-offset: 2px !important;
+  border-radius: 2px;
+}
+
+/* Remove default outline only — :focus-visible provides replacement */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── 3. SKIP TO CONTENT (WCAG 2.4.1 — bypass blocks) ───────────────────
+   Hidden link becomes visible on focus for keyboard users.               */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 10000;
+  background: #F4AC45;
+  color: #1a0f08;
+  padding: 8px 16px;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0 !important;
+  outline: none !important;
+}
+
+/* ── 4. CHART TABLE — COMPLETE OVERHAUL ────────────────────────────────
+   Fixes the "PosAlbumArtistMovePeakWks" run-together header issue,
+   adds proper column widths, spacing and hierarchy.                      */
+
+/* Table wrapper */
+.chart-table,
+.alb-chart-table,
+table.chart,
+table.alb-chart,
+#chart-body table,
+#alb-chart-body table,
+.chart-list table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* Column widths — gives each column breathing room */
+.chart-table col.c-pos,  .col-pos  { width: 52px; }
+.chart-table col.c-move, .col-move { width: 44px; }
+.chart-table col.c-title           { width: auto; }
+.chart-table col.c-peak, .col-peak { width: 52px; }
+.chart-table col.c-wks,  .col-wks  { width: 44px; }
+
+/* Header cells */
+.chart-table th,
+.alb-chart-table th,
+table.chart th,
+table.alb-chart th {
+  padding: 10px 12px 8px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+  color: #6b5a4e !important;
+  border-bottom: 2px solid #2a2a2a !important;
+  white-space: nowrap !important;
+  text-align: left !important;
+}
+
+/* Number columns right-align */
+.chart-table th.c-pos,
+.chart-table th.c-peak,
+.chart-table th.c-wks,
+.chart-table th.c-move {
+  text-align: center !important;
+}
+
+/* Data rows */
+.chart-table td,
+.alb-chart-table td,
+table.chart td,
+table.alb-chart td {
+  padding: 10px 12px !important;
+  border-bottom: 1px solid #1e1e1e !important;
+  vertical-align: middle !important;
+}
+
+/* Row hover */
+.chart-table tbody tr:hover td,
+table.chart tbody tr:hover td,
+table.alb-chart tbody tr:hover td {
+  background: rgba(244,172,69,0.06) !important;
+  cursor: pointer;
+}
+
+/* Position number — large, dominant */
+td.c-pos,
+.entry-pos,
+.chart-pos {
+  font-family: Georgia, 'Times New Roman', serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  color: #6b5a4e !important;
+  line-height: 1 !important;
+}
+
+/* No.1 row — amber highlight */
+tr.pos-1 td,
+tr.num-one td,
+tr[data-pos="1"] td {
+  background: rgba(244,172,69,0.08) !important;
+}
+
+tr.pos-1 td.c-pos,
+tr.num-one td.c-pos,
+tr[data-pos="1"] td.c-pos {
+  color: #A61C3C !important;
+}
+
+/* Track/album title — primary, bold */
+.entry-title,
+.chart-title-cell,
+.col-title,
+.song-title,
+.alb-title {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: #e8d8c8 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 0; /* forces ellipsis in table-layout:fixed */
+}
+
+/* Artist name — italic, secondary */
+.entry-artist,
+.chart-artist-cell,
+.col-artist,
+.song-artist,
+.alb-artist-name {
+  font-style: italic !important;
+  font-size: 12px !important;
+  color: #a09080 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  margin-top: 2px !important;
+  display: block !important;
+}
+
+/* Movement badges (▲▼ NEW RE) */
+.move-up,   .badge-up   { color: #4CAF7D !important; font-size: 11px !important; }
+.move-down, .badge-down { color: #E24B4A !important; font-size: 11px !important; }
+.move-new,  .badge-new,
+span.new-entry, .stat-badge.new {
+  background: #1D9E75 !important;
+  color: #fff !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  padding: 2px 5px !important;
+  border-radius: 2px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  vertical-align: middle !important;
+}
+.move-re, .badge-re,
+span.re-entry, .stat-badge.re {
+  background: #6b5a4e !important;
+  color: #e8d8c8 !important;
+  font-size: 9px !important;
+  font-weight: 700 !important;
+  padding: 2px 5px !important;
+  border-radius: 2px !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  vertical-align: middle !important;
+}
+
+/* ── 5. SIDEBAR — VISUAL HIERARCHY ─────────────────────────────────────
+   Year header should be dominant. Week items legible but subordinate.   */
+
+/* Sidebar container */
+.sidebar,
+.sidebar-nav,
+#sidebar,
+.chart-sidebar {
+  background: #111 !important;
+  border-right: 1px solid #222 !important;
+  overflow-y: auto;
+}
+
+/* Year header */
+.sidebar-year,
+.year-heading,
+.year-label,
+select#year-select,
+.year-select {
+  font-family: Georgia, serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: #F4AC45 !important;
+  padding: 10px 14px !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Year dropdown select */
+select#year-select,
+.sidebar select {
+  background: #1a1a1a !important;
+  border: 1px solid #333 !important;
+  color: #F4AC45 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 8px 12px !important;
+  width: 100% !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  margin-bottom: 4px !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Week items — legible, spaced, adequate touch target */
+.sidebar-week-item,
+.week-item,
+.week-link,
+.sidebar-item {
+  display: block !important;
+  padding: 9px 14px !important;  /* min 36px touch target */
+  font-size: 12px !important;
+  color: #8a7a6e !important;
+  cursor: pointer !important;
+  border-bottom: 1px solid #1a1a1a !important;
+  transition: color 0.12s, background 0.12s !important;
+  min-height: 36px !important;
+  line-height: 1.4 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.sidebar-week-item:hover,
+.week-item:hover,
+.week-link:hover {
+  color: #e8d8c8 !important;
+  background: rgba(244,172,69,0.08) !important;
+}
+
+.sidebar-week-item.active,
+.week-item.active,
+.week-link.active,
+.week-item.selected {
+  color: #F4AC45 !important;
+  background: rgba(244,172,69,0.12) !important;
+  border-left: 3px solid #F4AC45 !important;
+  padding-left: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Sidebar search input */
+.sidebar input[type="text"],
+.sidebar input[type="search"],
+#week-search,
+.week-search {
+  background: #1a1a1a !important;
+  border: 1px solid #333 !important;
+  color: #e8d8c8 !important;
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  width: 100% !important;
+  border-radius: 4px !important;
+  outline: none !important;
+}
+
+.sidebar input:focus {
+  border-color: #F4AC45 !important;
+}
+
+/* ── 6. LOADING SCREEN — PROGRESS INDICATOR ─────────────────────────── */
+
+#app-loader-wrap {
+  background: #0a0a0a !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 20px !important;
+}
+
+#app-loader-wrap .loader-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  color: #F4AC45 !important;
+}
+
+/* Animated loading bar */
+#app-loader-wrap::after {
+  content: '';
+  display: block;
+  width: 200px;
+  height: 2px;
+  background: #222;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes loader-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+#app-loader {
+  font-size: 13px !important;
+  color: #6b5a4e !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+/* Spinner */
+.loader-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #222;
+  border-top-color: #F4AC45;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Progress bar */
+.loader-bar-track {
+  width: 240px;
+  height: 2px;
+  background: #222;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: #F4AC45;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+/* ── 7. NAV DROPDOWN IMPROVEMENTS ──────────────────────────────────────
+   Bigger touch targets, clearer active states, better spacing.          */
+
+.nav-group-btn,
+.nav-btn,
+button.nav-group-btn {
+  min-height: 44px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  cursor: pointer !important;
+  transition: color 0.12s, background 0.12s !important;
+}
+
+.nav-dropdown,
+.nav-drop {
+  min-width: 200px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+  border: 1px solid #2a2a2a !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+
+.nav-drop-item,
+.nav-dropdown-item,
+button.nav-drop-item {
+  min-height: 44px !important;
+  padding: 0 16px !important;
+  font-size: 13px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+  cursor: pointer !important;
+  transition: background 0.12s !important;
+}
+
+/* ── 8. CHART HEADER META ───────────────────────────────────────────────
+   Date heading needs clear hierarchy and breathing room.                */
+
+.chart-header,
+.chart-date-heading,
+.week-heading {
+  padding: 20px 24px 16px !important;
+  border-bottom: 1px solid #1e1e1e !important;
+  margin-bottom: 0 !important;
+}
+
+.chart-date-heading h2,
+.chart-heading,
+.week-heading-text {
+  font-family: Georgia, serif !important;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  color: #e8d8c8 !important;
+  letter-spacing: -0.01em !important;
+  margin-bottom: 4px !important;
+}
+
+.chart-type-label,
+.chart-subheading {
+  font-size: 10px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em !important;
+  color: #A61C3C !important;
+  font-weight: 700 !important;
+}
+
+/* ── 9. MAIN CONTENT AREA ───────────────────────────────────────────────
+   Consistent padding, no content touching edges.                        */
+
+.main-content,
+.chart-content,
+#main-content {
+  padding: 0 !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+}
+
+/* ── 10. RESPONSIVE — MOBILE BASICS ────────────────────────────────────
+   Ensure the site doesn't break below 768px.                            */
+
+@media (max-width: 768px) {
+  .sidebar,
+  .sidebar-nav {
+    display: none !important;
+  }
+
+  .app-container,
+  .main-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chart-table td,
+  table.chart td {
+    padding: 8px 6px !important;
+  }
+
+  td.c-pos, .entry-pos {
+    font-size: 16px !important;
+  }
+
+  .nav-drop-item,
+  .nav-dropdown-item {
+    min-height: 48px !important;
+  }
+}
+
+/* ── 11. REDUCED MOTION ─────────────────────────────────────────────────
+   Respect user preference (WCAG 2.3.3 AAA).                             */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

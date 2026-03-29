@@ -1,0 +1,2202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK Charts Archive – Every UK Singles & Albums Chart Since 1952</title>
+<meta name="description" content="The complete UK singles and albums chart archive from 1952 to present. Browse every Number One, search chart history by artist, song, date or birthday, and explore decades of British music.">
+<link rel="canonical" href="https://ukcharts.netlify.app/">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="UK Charts Archive – Every UK Chart Since 1952">
+<meta property="og:description" content="The complete UK singles and albums chart archive from 1952 to present. Browse every Number One, search by artist, song, date or birthday.">
+<meta property="og:url" content="https://ukcharts.netlify.app/">
+<meta property="og:site_name" content="UK Charts Archive">
+<meta property="og:locale" content="en_GB">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UK Charts Archive – Every UK Chart Since 1952">
+<meta name="twitter:description" content="The complete UK singles and albums chart archive from 1952 to present. Browse every Number One, search by artist, song, date or birthday.">
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "UK Charts Archive",
+  "url": "https://ukcharts.netlify.app",
+  "description": "The complete UK singles and albums chart archive from 1952 to present. Browse every Number One, search chart history by artist, song, date or birthday.",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "UK Charts Archive"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "UK Singles and Albums Charts 1952–Present",
+  "description": "Weekly UK Top 100 singles and Top 100 albums chart positions from 1952 to the present day, sourced from the Official Charts Company.",
+  "url": "https://ukcharts.netlify.app",
+  "temporalCoverage": "1952/..",
+  "spatialCoverage": "United Kingdom",
+  "keywords": ["UK charts", "singles chart", "albums chart", "number ones", "British music", "chart history"],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --bg:#0d0b06; --surface:#181209; --surface2:#201810; --surface3:#2a2014;
+  --border:rgba(255,255,255,0.08); --border-strong:rgba(255,255,255,0.15);
+  --gold:#c9a84c; --gold-light:#e0be72; --gold-dim:#8a6e2f;
+  --cream:#ede8df; --muted:#9a8a6e; --faint:#5a4e3a;
+  --red:#b5271e; --red-dim:#7a1a15; --green:#2a6e3f;
+  --welsh-red:#c41e3a; --welsh-green:#00843d;
+  --xmas-red:#b5271e; --xmas-dark:#1a0a0a;
+  /* Type scale — 1.2 ratio (Minor Third) */
+  --text-xs:0.694rem; --text-sm:0.833rem; --text-base:1rem;
+  --text-lg:1.2rem; --text-xl:1.44rem; --text-2xl:1.728rem; --text-3xl:2.074rem;
+  /* Spacing — 8pt grid */
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px;
+  --sp-5:20px; --sp-6:24px; --sp-8:32px; --sp-12:48px;
+  /* Radii */
+  --r-sm:3px; --r-md:6px; --r-lg:10px; --r-xl:16px;
+  /* Transitions */
+  --t-fast:120ms cubic-bezier(0.4,0,0.2,1);
+  --t-mid:200ms cubic-bezier(0.4,0,0.2,1);
+  --t-slow:320ms cubic-bezier(0.4,0,0.2,1);
+}
+/* ── RESET ─────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--cream);font-family:'DM Sans',sans-serif;
+  min-height:100vh;overflow-x:hidden;line-height:1.5}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select{font-family:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:var(--r-sm)}
+/* ── SCROLLBAR ─────────────────────────────────────────────── */
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-dim)}
+
+/* ── HEADER ────────────────────────────────────────────────── */
+.site-header{
+  background:rgba(13,11,6,0.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border-strong);
+  padding:0 var(--sp-6);
+  position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;gap:var(--sp-4);
+  height:56px;
+}
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:var(--text-lg);font-weight:900;
+  color:var(--gold);white-space:nowrap;
+  letter-spacing:-0.02em;flex-shrink:0;
+}
+.logo em{font-style:normal;color:var(--muted);font-weight:400;font-size:var(--text-sm)}
+.header-nav{display:flex;align-items:center;gap:var(--sp-2);margin-left:auto}
+/* Primary nav buttons */
+.nav-btn{
+  height:36px;padding:0 var(--sp-4);
+  border:1px solid var(--border);color:var(--muted);
+  font-size:var(--text-xs);font-weight:600;letter-spacing:0.02em;
+  border-radius:var(--r-sm);transition:all var(--t-fast);white-space:nowrap;
+  display:flex;align-items:center;gap:var(--sp-1);
+}
+.nav-btn:hover{border-color:var(--border-strong);color:var(--cream);background:var(--surface2)}
+.nav-btn.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+.nav-btn.no1{border-color:var(--gold-dim);color:var(--gold-light)}
+.nav-btn.no1.active,.nav-btn.no1:hover{background:var(--gold);color:var(--bg);border-color:var(--gold)}
+.nav-btn.xmas{border-color:#5c1515;color:#d06060}
+.nav-btn.xmas.active,.nav-btn.xmas:hover{background:var(--xmas-red);color:#fff;border-color:var(--xmas-red)}
+/* Dropdown nav */
+.nav-group{position:relative}
+.nav-group-btn{
+  height:36px;padding:0 var(--sp-4);
+  border:1px solid var(--border);color:var(--muted);
+  font-size:var(--text-xs);font-weight:600;letter-spacing:0.02em;
+  border-radius:var(--r-sm);transition:all var(--t-fast);
+  display:flex;align-items:center;gap:var(--sp-1);
+}
+.nav-group-btn:hover,.nav-group-btn.open{border-color:var(--border-strong);color:var(--cream);background:var(--surface2)}
+.nav-group-btn.has-active{border-color:var(--gold-dim);color:var(--gold-light)}
+.nav-chevron{font-size:9px;transition:transform var(--t-fast);display:inline-block}
+.nav-group-btn.open .nav-chevron{transform:rotate(180deg)}
+.nav-dropdown{
+  position:absolute;top:calc(100% + 6px);left:0;min-width:200px;
+  background:var(--surface2);border:1px solid var(--border-strong);
+  border-radius:var(--r-md);padding:var(--sp-1) 0;
+  box-shadow:0 8px 32px rgba(0,0,0,0.5);
+  opacity:0;transform:translateY(-6px);pointer-events:none;
+  transition:opacity var(--t-mid),transform var(--t-mid);z-index:300;
+}
+.nav-dropdown.open{opacity:1;transform:translateY(0);pointer-events:all}
+.nav-drop-item{
+  width:100%;text-align:left;padding:var(--sp-3) var(--sp-4);
+  font-size:var(--text-sm);color:var(--muted);
+  transition:all var(--t-fast);display:flex;align-items:center;gap:var(--sp-2);
+}
+.nav-drop-item:hover{background:var(--surface3);color:var(--cream)}
+.nav-drop-item.active{color:var(--gold);background:rgba(201,168,76,0.1)}
+.nav-drop-divider{height:1px;background:var(--border);margin:var(--sp-1) 0}
+
+/* ── LAYOUT ─────────────────────────────────────────────────── */
+.app{display:flex;height:calc(100vh - 56px);overflow:hidden}
+.sidebar{
+  width:260px;min-width:260px;
+  background:var(--surface);border-right:1px solid var(--border);
+  display:flex;flex-direction:column;overflow:hidden;
+  transition:width var(--t-slow),min-width var(--t-slow);
+}
+.sidebar.collapsed{width:0;min-width:0;border-right:none}
+.sidebar-toggle{
+  position:absolute;top:50%;transform:translateY(-50%);
+  left:260px;z-index:100;
+  width:20px;height:40px;
+  background:var(--surface);border:1px solid var(--border);
+  border-left:none;border-radius:0 var(--r-sm) var(--r-sm) 0;
+  color:var(--faint);font-size:10px;
+  display:flex;align-items:center;justify-content:center;
+  transition:left var(--t-slow),color var(--t-fast);cursor:pointer;
+}
+.sidebar-toggle:hover{color:var(--gold)}
+.sidebar.collapsed+.main>.sidebar-toggle{left:0}
+.main-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.main{flex:1;overflow-y:auto;padding:var(--sp-6) var(--sp-8)}
+
+/* ── SIDEBAR CONTROLS ───────────────────────────────────────── */
+.sidebar-top{padding:var(--sp-3) var(--sp-3);display:flex;flex-direction:column;gap:var(--sp-2);border-bottom:1px solid var(--border)}
+.search-label{font-size:var(--text-xs);color:var(--faint);font-family:'DM Mono',monospace;letter-spacing:0.05em;text-transform:uppercase;padding:0 var(--sp-1)}
+.search-wrap{position:relative}
+.search-input{
+  width:100%;background:var(--bg);
+  border:1px solid var(--border);color:var(--cream);
+  font-size:var(--text-sm);padding:var(--sp-2) var(--sp-3) var(--sp-2) 28px;
+  border-radius:var(--r-sm);outline:none;
+  transition:border-color var(--t-fast),box-shadow var(--t-fast);
+  box-shadow:inset 0 1px 3px rgba(0,0,0,0.3);
+}
+.search-wrap::before{
+  content:'⌕';position:absolute;left:8px;top:50%;transform:translateY(-50%);
+  color:var(--faint);font-size:14px;pointer-events:none;
+}
+.search-input::placeholder{color:var(--faint)}
+.search-input:focus{border-color:var(--gold);box-shadow:inset 0 1px 3px rgba(0,0,0,0.3),0 0 0 3px rgba(201,168,76,0.12)}
+.alpha-bar{display:flex;flex-wrap:wrap;gap:2px;padding:var(--sp-2) var(--sp-3);border-bottom:1px solid var(--border)}
+.alpha-btn{
+  min-width:22px;height:22px;padding:0 2px;
+  background:transparent;color:var(--faint);
+  font-family:'DM Mono',monospace;font-size:var(--text-xs);font-weight:500;
+  border-radius:var(--r-sm);transition:all var(--t-fast);
+  display:flex;align-items:center;justify-content:center;
+}
+.alpha-btn:hover{background:var(--surface3);color:var(--cream)}
+.alpha-btn.active{background:var(--gold);color:var(--bg);font-weight:700}
+.filter-bar{display:flex;flex-wrap:wrap;gap:var(--sp-1);padding:var(--sp-2) var(--sp-3);border-bottom:1px solid var(--border)}
+.filter-chip{
+  padding:3px var(--sp-2);border:1px solid var(--border);
+  color:var(--faint);font-size:var(--text-xs);font-family:'DM Mono',monospace;
+  border-radius:10px;transition:all var(--t-fast);
+}
+.filter-chip:hover{border-color:var(--border-strong);color:var(--cream)}
+.filter-chip.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:600}
+.sidebar-year{padding:var(--sp-2) var(--sp-3);border-bottom:1px solid var(--border)}
+.year-select{
+  width:100%;background:var(--bg);border:1px solid var(--border);
+  color:var(--cream);font-size:var(--text-sm);padding:var(--sp-2) var(--sp-2);
+  border-radius:var(--r-sm);outline:none;cursor:pointer;
+}
+.year-select:focus{border-color:var(--gold)}
+.sidebar-list{flex:1;overflow-y:auto;padding:var(--sp-1) 0}
+.s-item{
+  padding:var(--sp-2) var(--sp-4);
+  border-left:3px solid transparent;
+  cursor:pointer;transition:all var(--t-fast);
+  min-height:44px;display:flex;flex-direction:column;justify-content:center;
+}
+.s-item:hover{background:var(--surface2);border-left-color:var(--gold-dim)}
+.s-item.active{background:var(--surface2);border-left-color:var(--gold)}
+.s-item-title{font-size:var(--text-sm);font-weight:500;color:var(--cream);line-height:1.3}
+.s-item-sub{font-size:var(--text-xs);color:var(--muted);font-family:'DM Mono',monospace;margin-top:2px}
+/* ── BADGE SYSTEM ───────────────────────────────────────────── */
+.badge{
+  display:inline-flex;align-items:center;gap:2px;
+  padding:1px 6px;border-radius:10px;
+  font-size:var(--text-xs);font-family:'DM Mono',monospace;font-weight:600;
+  vertical-align:middle;margin-left:var(--sp-1);
+}
+.badge-no1{background:rgba(201,168,76,0.2);color:var(--gold);border:1px solid var(--gold-dim)}
+.badge-top10{background:rgba(181,39,30,0.15);color:#e06060;border:1px solid var(--red-dim)}
+.badge-top5{background:rgba(181,39,30,0.25);color:#e06060;border:1px solid var(--red)}
+.badge-welsh{background:rgba(196,30,58,0.2);color:#e06060;border:1px solid rgba(196,30,58,0.5)}
+.badge-plain{background:var(--surface3);color:var(--muted);border:1px solid var(--border)}
+/* ── PAGINATION ─────────────────────────────────────────────── */
+.pagination{display:flex;gap:3px;align-items:center;padding:var(--sp-2) var(--sp-3);flex-wrap:wrap}
+.pg-btn{
+  height:28px;min-width:28px;padding:0 var(--sp-2);
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--muted);font-family:'DM Mono',monospace;font-size:var(--text-xs);
+  border-radius:var(--r-sm);transition:all var(--t-fast);
+}
+.pg-btn:hover{border-color:var(--border-strong);color:var(--cream)}
+.pg-btn.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+.pg-btn:disabled{opacity:0.3;cursor:default}
+.pg-info{font-size:var(--text-xs);color:var(--faint);font-family:'DM Mono',monospace;margin-left:var(--sp-1)}
+/* ── MAIN CONTENT CARDS ────────────────────────────────────── */
+.page-fade{animation:fadeIn var(--t-slow) ease-out}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--sp-6)}
+.card+.card{margin-top:var(--sp-4)}
+.card-hero{
+  background:linear-gradient(135deg,var(--surface2) 0%,var(--surface) 100%);
+  border:1px solid var(--border-strong);border-radius:var(--r-lg);
+  padding:var(--sp-8) var(--sp-8);margin-bottom:var(--sp-6);
+  position:relative;overflow:hidden;
+}
+.card-hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at top right,rgba(201,168,76,0.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+.section-label{
+  font-size:var(--text-xs);font-family:'DM Mono',monospace;
+  color:var(--gold);text-transform:uppercase;letter-spacing:0.1em;
+  margin-bottom:var(--sp-2);
+}
+.stat-row{display:flex;gap:var(--sp-3);flex-wrap:wrap;margin:var(--sp-4) 0}
+.stat-tile{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:var(--sp-3) var(--sp-4);flex:1;min-width:100px;
+}
+.stat-n{font-family:'Playfair Display',serif;font-size:var(--text-2xl);font-weight:700;color:var(--gold);line-height:1}
+.stat-n.gold{color:var(--gold)}
+.stat-n.large{font-size:var(--text-3xl)}
+.stat-l{font-size:var(--text-xs);color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.05em;margin-top:var(--sp-1)}
+/* ── CHART TABLE ────────────────────────────────────────────── */
+.chart-table{width:100%;border-collapse:collapse}
+.chart-table th{
+  text-align:left;padding:var(--sp-2) var(--sp-3);
+  font-size:var(--text-xs);letter-spacing:0.08em;font-weight:600;
+  text-transform:uppercase;color:var(--gold);font-family:'DM Mono',monospace;
+  border-bottom:1px solid var(--border-strong);position:sticky;top:0;
+  background:var(--surface);z-index:10;
+}
+.chart-table td{padding:var(--sp-2) var(--sp-3);font-size:var(--text-sm);border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:middle}
+.chart-table tr:hover td{background:rgba(255,255,255,0.03)}
+.pos-cell{font-family:'DM Mono',monospace;font-weight:700;font-size:var(--text-base);text-align:center;width:36px;color:var(--gold)}
+.pos-1{color:#ffd700}
+.pos-2{color:#c0c0c0}
+.pos-3{color:#cd7f32}
+.move-up{color:#2a8a50;font-size:var(--text-xs);font-family:'DM Mono',monospace}
+.move-dn{color:var(--red);font-size:var(--text-xs);font-family:'DM Mono',monospace}
+.move-new{color:var(--gold);font-size:var(--text-xs);font-family:'DM Mono',monospace;font-weight:700;letter-spacing:0.05em}
+.move-hold{color:var(--faint);font-size:var(--text-xs)}
+.song-link{font-weight:500;color:var(--cream);cursor:pointer;transition:color var(--t-fast)}
+.song-link:hover{color:var(--gold-light)}
+.artist-link{color:var(--muted);font-size:var(--text-xs);cursor:pointer;transition:color var(--t-fast)}
+.artist-link:hover{color:var(--gold-light)}
+.peak-chip{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:24px;height:24px;border-radius:50%;
+  font-size:var(--text-xs);font-family:'DM Mono',monospace;font-weight:700;
+}
+.peak-chip.p1{background:var(--gold);color:var(--bg)}
+.peak-chip.p10{background:var(--surface3);color:#e06060;border:1px solid var(--red-dim)}
+.peak-chip.pn{background:var(--surface3);color:var(--faint);border:1px solid var(--border)}
+/* ── WEEK VIEW ──────────────────────────────────────────────── */
+.no1-hero{
+  background:linear-gradient(135deg,#1e1500,var(--surface));
+  border:1px solid rgba(201,168,76,0.3);border-radius:var(--r-lg);
+  padding:var(--sp-5) var(--sp-6);margin-bottom:var(--sp-4);
+  display:flex;align-items:center;gap:var(--sp-5);
+}
+.no1-crown{font-size:2rem;flex-shrink:0}
+.no1-meta{font-size:var(--text-xs);color:var(--gold);font-family:'DM Mono',monospace;letter-spacing:0.08em;margin-bottom:4px}
+.no1-song{font-family:'Playfair Display',serif;font-size:var(--text-xl);font-weight:700;color:#ffd700;line-height:1.2}
+.no1-artist{font-size:var(--text-sm);color:var(--cream);margin-top:var(--sp-1)}
+.week-nav{display:flex;gap:var(--sp-2);margin-bottom:var(--sp-4);align-items:center}
+.week-nav-btn{
+  height:36px;padding:0 var(--sp-4);
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--muted);font-size:var(--text-sm);font-family:'DM Mono',monospace;
+  border-radius:var(--r-sm);transition:all var(--t-fast);
+}
+.week-nav-btn:hover:not(:disabled){border-color:var(--gold-dim);color:var(--gold)}
+.week-nav-btn:disabled{opacity:0.3;cursor:default}
+.week-title-text{font-family:'Playfair Display',serif;font-size:var(--text-xl);color:var(--gold)}
+/* ── NUMBER ONES LIST ───────────────────────────────────────── */
+.no1-list-row{
+  display:grid;grid-template-columns:88px 1fr 80px;
+  align-items:start;gap:var(--sp-3);
+  padding:var(--sp-3) var(--sp-4);border-bottom:1px solid rgba(255,255,255,0.04);
+  transition:background var(--t-fast);
+}
+.no1-list-row:hover{background:var(--surface2)}
+.no1-date{font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--muted);line-height:1.6}
+.no1-yr{font-weight:700;color:var(--gold)}
+.no1-row-song{font-weight:600;color:var(--cream);font-size:var(--text-sm);cursor:pointer;transition:color var(--t-fast)}
+.no1-row-song:hover{color:var(--gold-light)}
+.no1-row-artist{font-size:var(--text-xs);color:var(--muted);cursor:pointer;margin-top:2px}
+.no1-row-artist:hover{color:var(--gold-light)}
+.wk-badge{
+  display:inline-block;padding:2px var(--sp-2);border-radius:10px;
+  font-family:'DM Mono',monospace;font-size:var(--text-xs);font-weight:700;
+  text-align:center;
+}
+.wk-single{background:var(--surface3);color:var(--muted);border:1px solid var(--border)}
+.wk-short{background:var(--surface2);color:var(--gold-dim);border:1px solid rgba(201,168,76,0.2)}
+.wk-long{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid var(--gold-dim)}
+.wk-epic{background:var(--gold);color:var(--bg)}
+/* ── CHRISTMAS ──────────────────────────────────────────────── */
+.xmas-header{
+  background:linear-gradient(135deg,#1a0505,#0a100a);
+  border:1px solid rgba(181,39,30,0.4);border-radius:var(--r-lg);
+  padding:var(--sp-8);margin-bottom:var(--sp-6);
+}
+.xmas-title-text{font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:#d06060}
+.repeat-badge{
+  display:inline-block;background:rgba(181,39,30,0.2);
+  color:#d06060;border:1px solid rgba(181,39,30,0.4);
+  font-family:'DM Mono',monospace;font-size:var(--text-xs);
+  padding:1px var(--sp-2);border-radius:10px;margin-left:var(--sp-1);
+}
+/* ── FEATURE PAGES ───────────────────────────────────────────── */
+.feature-header{
+  border-radius:var(--r-lg);padding:var(--sp-8);margin-bottom:var(--sp-6);
+  position:relative;overflow:hidden;
+}
+.feature-header.birthday{background:linear-gradient(135deg,#0d0a20,var(--surface))}
+.feature-header.date-explorer{background:linear-gradient(135deg,#0a150d,var(--surface))}
+.feature-header.era{background:linear-gradient(135deg,#150d00,var(--surface))}
+.feature-header.welsh{background:linear-gradient(135deg,#1a0510,var(--surface))}
+.feature-header.ohw{background:linear-gradient(135deg,#0a0a18,var(--surface))}
+.feature-title{font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:var(--sp-2)}
+.feature-sub{font-size:var(--text-sm);color:var(--muted);max-width:520px;line-height:1.6}
+/* Date input row */
+.input-row{display:flex;gap:var(--sp-3);align-items:flex-end;margin-top:var(--sp-6);flex-wrap:wrap}
+.input-group{display:flex;flex-direction:column;gap:var(--sp-1)}
+.input-label{font-size:var(--text-xs);font-family:'DM Mono',monospace;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em}
+.input-field{
+  height:40px;padding:0 var(--sp-3);
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--cream);font-size:var(--text-sm);
+  border-radius:var(--r-sm);outline:none;
+  transition:border-color var(--t-fast),box-shadow var(--t-fast);
+}
+.input-field:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.12)}
+.action-btn{
+  height:40px;padding:0 var(--sp-6);
+  background:var(--gold);color:var(--bg);
+  font-size:var(--text-sm);font-weight:700;
+  border-radius:var(--r-sm);transition:all var(--t-fast);
+  white-space:nowrap;
+}
+.action-btn:hover{background:var(--gold-light);transform:translateY(-1px)}
+.action-btn:active{transform:translateY(0)}
+.action-btn.secondary{background:var(--surface2);color:var(--cream);border:1px solid var(--border)}
+.action-btn.secondary:hover{border-color:var(--gold-dim);color:var(--gold)}
+/* Birthday timeline */
+.birthday-timeline{display:flex;flex-direction:column;gap:var(--sp-3)}
+.bday-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);
+  display:grid;grid-template-columns:64px 1fr auto;
+  align-items:center;gap:var(--sp-4);
+  transition:all var(--t-fast);
+}
+.bday-card:hover{border-color:var(--border-strong);background:var(--surface2)}
+.bday-card.highlight{
+  border-color:rgba(201,168,76,0.4);
+  background:linear-gradient(135deg,rgba(201,168,76,0.08),var(--surface));
+}
+.bday-age{
+  font-family:'Playfair Display',serif;font-size:var(--text-2xl);
+  font-weight:900;color:var(--gold);text-align:center;line-height:1;
+}
+.bday-age-label{font-size:var(--text-xs);color:var(--faint);font-family:'DM Mono',monospace;text-align:center;text-transform:uppercase}
+.bday-song{font-family:'Playfair Display',serif;font-size:var(--text-lg);font-weight:700;color:var(--cream);cursor:pointer}
+.bday-song:hover{color:var(--gold-light)}
+.bday-artist{font-size:var(--text-sm);color:var(--muted);cursor:pointer;margin-top:2px}
+.bday-artist:hover{color:var(--gold-light)}
+.bday-year-label{font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--faint);margin-bottom:2px}
+/* Era time machine */
+.era-year-display{
+  font-family:'Playfair Display',serif;
+  font-size:5rem;font-weight:900;
+  color:var(--gold);line-height:1;letter-spacing:-0.03em;
+  margin-bottom:var(--sp-2);
+}
+.era-slider{
+  width:100%;height:6px;
+  -webkit-appearance:none;appearance:none;
+  background:var(--surface3);border-radius:3px;outline:none;
+  margin:var(--sp-4) 0;cursor:pointer;
+}
+.era-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;
+  border-radius:50%;background:var(--gold);cursor:pointer;
+  box-shadow:0 0 0 4px rgba(201,168,76,0.2);
+  transition:box-shadow var(--t-fast);
+}
+.era-slider::-webkit-slider-thumb:hover{box-shadow:0 0 0 6px rgba(201,168,76,0.3)}
+.era-context{
+  background:var(--surface);border:1px solid var(--border);
+  border-left:3px solid var(--gold);border-radius:0 var(--r-md) var(--r-md) 0;
+  padding:var(--sp-4) var(--sp-5);margin:var(--sp-4) 0;
+  font-size:var(--text-sm);color:var(--muted);line-height:1.7;font-style:italic;
+}
+/* Welsh */
+.welsh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:var(--sp-4);margin-top:var(--sp-4)}
+.welsh-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r-lg);padding:var(--sp-5);
+  cursor:pointer;transition:all var(--t-fast);
+  border-top:3px solid transparent;
+}
+.welsh-card:hover{border-color:var(--border-strong);border-top-color:var(--welsh-red);background:var(--surface2)}
+.welsh-card.no1-artist{border-top-color:var(--gold)}
+.welsh-name{font-family:'Playfair Display',serif;font-size:var(--text-lg);font-weight:700;color:var(--cream);margin-bottom:var(--sp-2)}
+.welsh-flag{font-size:1.2rem;margin-right:var(--sp-1)}
+/* OHW */
+.ohw-spotlight{
+  background:linear-gradient(135deg,var(--surface2),var(--surface));
+  border:1px solid var(--border-strong);border-radius:var(--r-lg);
+  padding:var(--sp-8);margin-bottom:var(--sp-6);
+  position:relative;overflow:hidden;
+}
+.ohw-spotlight::after{
+  content:'★';position:absolute;right:var(--sp-8);top:var(--sp-6);
+  font-size:5rem;color:rgba(201,168,76,0.06);pointer-events:none;
+  font-family:'Playfair Display',serif;
+}
+.ohw-label{font-size:var(--text-xs);font-family:'DM Mono',monospace;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--sp-2)}
+.ohw-song{font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);margin-bottom:var(--sp-1)}
+.ohw-artist{font-size:var(--text-lg);color:var(--muted)}
+.ohw-stats{display:flex;gap:var(--sp-3);margin-top:var(--sp-4);flex-wrap:wrap}
+.ohw-stat{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:var(--r-md);padding:var(--sp-2) var(--sp-4)}
+.ohw-stat-n{font-family:'DM Mono',monospace;font-weight:700;color:var(--gold);font-size:var(--text-base)}
+.ohw-stat-l{font-size:var(--text-xs);color:var(--faint)}
+/* ── WELCOME ─────────────────────────────────────────────────── */
+.welcome-wrap{max-width:680px}
+.welcome-eyebrow{font-size:var(--text-xs);font-family:'DM Mono',monospace;color:var(--gold);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:var(--sp-3)}
+.welcome-headline{font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);line-height:1.1;margin-bottom:var(--sp-4);letter-spacing:-0.02em}
+.welcome-headline span{color:var(--gold)}
+.welcome-body{font-size:var(--text-sm);color:var(--muted);line-height:1.7;margin-bottom:var(--sp-6);max-width:520px}
+.welcome-cta{
+  display:flex;flex-direction:column;
+  background:linear-gradient(135deg,rgba(201,168,76,0.1),rgba(201,168,76,0.03));
+  border:1px solid rgba(201,168,76,0.25);border-radius:var(--r-lg);
+  padding:var(--sp-6);margin-bottom:var(--sp-6);gap:var(--sp-3);
+}
+.cta-label{font-size:var(--text-xs);color:var(--gold);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:0.08em}
+.cta-question{font-family:'Playfair Display',serif;font-size:var(--text-xl);font-weight:700;color:var(--cream)}
+.cta-actions{display:flex;gap:var(--sp-3);flex-wrap:wrap}
+.welcome-links{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin-bottom:var(--sp-4)}
+.welcome-link{
+  padding:var(--sp-2) var(--sp-4);
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--muted);font-size:var(--text-sm);
+  border-radius:var(--r-sm);transition:all var(--t-fast);
+}
+.welcome-link:hover{border-color:var(--border-strong);color:var(--cream);background:var(--surface3)}
+/* ── MISC ───────────────────────────────────────────────────── */
+.divider{height:1px;background:var(--border);margin:var(--sp-4) 0}
+.empty-state{text-align:center;padding:var(--sp-12) var(--sp-8);color:var(--faint);font-size:var(--text-sm);font-family:'DM Mono',monospace}
+.tag{
+  display:inline-block;padding:2px var(--sp-2);
+  background:var(--surface3);color:var(--muted);
+  font-size:var(--text-xs);font-family:'DM Mono',monospace;
+  border-radius:var(--r-sm);margin-right:4px;
+}
+.note-box{
+  background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);
+  border-radius:var(--r-md);padding:var(--sp-4) var(--sp-5);
+  font-size:var(--text-sm);color:var(--muted);line-height:1.6;margin:var(--sp-4) 0;
+}
+.share-box{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--r-md);padding:var(--sp-4);
+  font-family:'DM Mono',monospace;font-size:var(--text-xs);
+  color:var(--muted);cursor:text;user-select:all;line-height:1.6;
+  white-space:pre-wrap;margin-top:var(--sp-4);
+}
+
+/* ── Chart Run Trajectory ──────────────────────────────────────── */
+.traj-section{margin:var(--sp-5) 0 var(--sp-3)}
+.traj-label{font-family:'DM Mono',monospace;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:var(--sp-2)}
+.traj-weeks{color:var(--gold);margin-left:var(--sp-1)}
+.traj-track{display:flex;flex-wrap:wrap;gap:2px;margin-bottom:var(--sp-2)}
+.traj-cell{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;border-radius:4px;font-family:'DM Mono',monospace;font-size:10px;font-weight:700;cursor:default;transition:transform .1s;padding:0 3px}
+.traj-cell:hover{transform:scale(1.3);z-index:10;position:relative}
+.traj-cell.sm{min-width:18px;height:18px;font-size:9px}
+.tr-no1{background:var(--gold);color:#1a1200}
+.tr-top3{background:#e8824a;color:#fff}
+.tr-top10{background:#4a8ee8;color:#fff}
+.tr-top40{background:#3a7055;color:#c8f0d8}
+.tr-outer{background:#2a2a2a;color:#888}
+.traj-legend{display:flex;align-items:center;gap:var(--sp-2);flex-wrap:wrap}
+.tl{font-size:var(--text-xs);color:var(--faint);margin-right:var(--sp-2)}
+
+/* ── Badges ────────────────────────────────────────────────────── */
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle}
+.badge-rerelease{background:rgba(200,140,60,.2);color:#c89040;border:1px solid rgba(200,140,60,.3)}
+.badge-remix{background:rgba(100,140,220,.2);color:#8aabee;border:1px solid rgba(100,140,220,.3)}
+.multi-no1-badge{display:inline-block;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold);font-size:var(--text-sm);border-radius:6px;padding:var(--sp-1) var(--sp-3);margin:var(--sp-2) 0}
+
+/* ── Sort bar ──────────────────────────────────────────────────── */
+.sort-btn{background:none;border:1px solid rgba(255,255,255,.1);color:var(--faint);font-size:11px;padding:3px 10px;border-radius:12px;cursor:pointer;font-family:'DM Mono',monospace;transition:all .15s}
+.sort-btn:hover{border-color:var(--gold);color:var(--cream)}
+.sort-btn.active{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold)}
+
+/* ── Stats page ────────────────────────────────────────────────── */
+.stats-header{border:1px solid rgba(201,168,76,.2)}
+.stats-tabs{display:flex;gap:var(--sp-2);flex-wrap:wrap;margin:var(--sp-4) 0 var(--sp-2)}
+.stats-tab{background:none;border:1px solid rgba(255,255,255,.1);color:var(--faint);padding:var(--sp-2) var(--sp-4);border-radius:8px;cursor:pointer;font-size:var(--text-sm);transition:all .15s}
+.stats-tab:hover{border-color:var(--gold);color:var(--cream)}
+.stats-tab.active{background:rgba(201,168,76,.15);border-color:var(--gold);color:var(--gold);font-weight:700}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:var(--sp-5);margin-top:var(--sp-4)}
+.stats-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:var(--sp-5)}
+.stats-card-title{font-family:'Playfair Display',serif;font-size:var(--text-lg);color:var(--cream);margin-bottom:var(--sp-1)}
+.stats-card-sub{font-size:var(--text-sm);color:var(--faint);margin-bottom:var(--sp-4);line-height:1.5}
+.stat-bars.compact{max-height:320px;overflow-y:auto}
+.stat-bar-row{display:flex;align-items:center;gap:var(--sp-2);margin-bottom:2px}
+.stat-bar-year{font-family:'DM Mono',monospace;font-size:10px;color:var(--faint);width:34px;text-align:right;flex-shrink:0}
+.stat-bar-track{flex:1;background:rgba(255,255,255,.05);border-radius:2px;height:10px;overflow:hidden}
+.stat-bar-fill{height:100%;border-radius:2px;transition:width .3s ease-out}
+.stat-bar-val{font-family:'DM Mono',monospace;font-size:10px;color:var(--faint);width:36px;text-align:right;flex-shrink:0}
+.stats-table{display:flex;flex-direction:column;gap:4px;max-height:420px;overflow-y:auto}
+.stats-row{display:flex;align-items:center;gap:var(--sp-2);padding:var(--sp-1) 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.stats-rank{font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--faint);width:22px;flex-shrink:0}
+.stats-name{flex:1;font-size:var(--text-sm);color:var(--cream);line-height:1.3}
+.stats-name small{color:var(--faint);font-size:.85em}
+.stats-val{font-family:'DM Mono',monospace;font-size:var(--text-sm);color:var(--gold);font-weight:700;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">UK Charts <em>1952–2026</em></div>
+  <nav class="header-nav" id="header-nav">
+    <div class="nav-group" id="grp-singles">
+      <button class="nav-group-btn" id="grp-singles-btn" onclick="toggleGroup('singles')">Singles <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown" id="grp-singles-drop">
+        <button class="nav-drop-item" id="mi-songs" onclick="setMode('songs');closeGroups()">🎵 Songs A–Z</button>
+        <button class="nav-drop-item" id="mi-artists" onclick="setMode('artists');closeGroups()">🎤 Artists A–Z</button>
+        <button class="nav-drop-item" id="mi-weekly" onclick="setMode('weekly');closeGroups()">📅 Weekly Charts</button>
+        <button class="nav-drop-item" id="mi-no1" onclick="setMode('no1');closeGroups()">★ Number Ones</button>
+        <button class="nav-drop-item" id="mi-xmas" onclick="setMode('xmas');closeGroups()">🎄 Christmas No.1s</button>
+      </div>
+    </div>
+    <div class="nav-group" id="grp-albums">
+      <button class="nav-group-btn" id="grp-albums-btn" onclick="toggleGroup('albums')">Albums <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown" id="grp-albums-drop">
+        <button class="nav-drop-item" id="mi-alb-songs" onclick="setMode('alb-songs');closeGroups()">💿 Albums A–Z</button>
+        <button class="nav-drop-item" id="mi-alb-artists" onclick="setMode('alb-artists');closeGroups()">🎤 Album Artists A–Z</button>
+        <button class="nav-drop-item" id="mi-alb-weekly" onclick="setMode('alb-weekly');closeGroups()">📅 Weekly Albums</button>
+        <button class="nav-drop-item" id="mi-alb-no1" onclick="setMode('alb-no1');closeGroups()">★ Album No.1s</button>
+      </div>
+    </div>
+    <div class="nav-group" id="grp-explore">
+      <button class="nav-group-btn" id="grp-explore-btn" onclick="toggleGroup('explore')">Explore <span class="nav-chevron">▾</span></button>
+      <div class="nav-dropdown" id="grp-explore-drop">
+        <button class="nav-drop-item" id="mi-birthday" onclick="setMode('birthday');closeGroups()">🎂 Birthday No.1 Finder</button>
+        <button class="nav-drop-item" id="mi-date" onclick="setMode('date');closeGroups()">📅 Date Explorer</button>
+        <button class="nav-drop-item" id="mi-era" onclick="setMode('era');closeGroups()">🕰️ Era Time Machine</button>
+        <div class="nav-drop-divider"></div>
+        <button class="nav-drop-item" id="mi-welsh" onclick="setMode('welsh');closeGroups()">🐉 Welsh Artists</button>
+        <button class="nav-drop-item" id="mi-ohw" onclick="setMode('ohw');closeGroups()">⭐ One-Hit Wonders</button>
+        <div class="nav-drop-divider"></div>
+        <button class="nav-drop-item" id="mi-stats" onclick="setMode('stats');closeGroups()">📊 Chart Statistics</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top" id="sidebar-search-area">
+      <div class="search-label" id="search-label">Search</div>
+      <div class="search-wrap">
+        <input class="search-input" id="search-input" placeholder="Songs, artists…"
+               aria-label="Search songs and artists" oninput="onSearch(this.value)">
+      </div>
+      <div id="sort-bar" style="display:none;padding:var(--sp-2) var(--sp-4) 0">
+        <div style="font-size:var(--text-xs);color:var(--faint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:var(--sp-1)">Sort by</div>
+        <div style="display:flex;gap:var(--sp-1);flex-wrap:wrap">
+          <button class="sort-btn active" id="sort-default" onclick="setSortBy('default')">Relevance</button>
+          <button class="sort-btn" id="sort-peak" onclick="setSortBy('peak')">Peak</button>
+          <button class="sort-btn" id="sort-weeks" onclick="setSortBy('weeks')">Weeks</button>
+          <button class="sort-btn" id="sort-date" onclick="setSortBy('date')">Date</button>
+        </div>
+      </div>
+    </div>
+    <div class="alpha-bar" id="alpha-bar"></div>
+    <div class="filter-bar" id="filter-bar" style="display:none"></div>
+    <div class="sidebar-year" id="sidebar-year" style="display:none">
+      <select class="year-select" id="year-select" onchange="onYearChangeCombined(this.value)" aria-label="Select year"></select>
+    </div>
+    <div class="sidebar-list" id="sidebar-list">
+      <div class="empty-state">Initialising…</div>
+    </div>
+  </aside>
+
+  <div class="main-wrap" id="main-wrap">
+    <div class="main page-fade" id="main" role="main">
+      <div id="content"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── DATA ─────────────────────────────────────────────────────
+// __ DATA (loaded from uk_charts_data.json) _____________________
+let RAW_SONGS, RAW_WEEKLY, WEEK_INDEX, NUMBER_ONES, RAW_ALBUMS, RAW_ALB_WEEKLY, ALB_WEEK_INDEX, ALBUM_NO1S, SONG_TRAJ, ALB_TRAJ, CHART_STATS, XMAS_NO1S, ONE_HIT_W, WELSH_SONGS, YEAR_CTX;
+
+
+
+
+// ── INDEXES ───────────────────────────────────────────────────
+let SONGS = [];
+let ARTIST_IDX = {};
+let SONG_MAP = {};
+let ARTIST_LIST = [];
+let ALBUMS = [];
+let ALB_ARTIST_IDX = {};
+let ALB_MAP = {};
+let ALB_ARTIST_LIST = [];
+
+function buildIndexes() {
+  SONGS = RAW_SONGS.map(r => ({song:r[0],artist:r[1],peak:r[2],weeks:r[3],entry:r[4]}));
+  for (let i=0; i<SONGS.length; i++) {
+    const s=SONGS[i];
+    SONG_MAP[s.song+'||'+s.artist] = i;
+    if (!ARTIST_IDX[s.artist]) ARTIST_IDX[s.artist] = [];
+    ARTIST_IDX[s.artist].push(s);  // Keep storing objects for compatibility
+  }
+  ARTIST_LIST = Object.keys(ARTIST_IDX).sort((a,b)=>a.localeCompare(b));
+  // & vs AND normalisation: build lookup "ARTIST WITH AND" -> canonical with &
+  window.AMP_NORM = {};
+  for (const a of ARTIST_LIST) {
+    if (a.includes(' AND ')) {
+      const alt = a.replace(/ AND /g, ' & ');
+      if (ARTIST_IDX[alt]) { AMP_NORM[a] = alt; } // prefer & form if it exists
+      else AMP_NORM[alt] = a; // prefer AND form
+    }
+  }
+  ALBUMS = RAW_ALBUMS.map(r => ({album:r[0],artist:r[1],peak:r[2],weeks:r[3],entry:r[4]}));
+  for (let i=0;i<ALBUMS.length;i++) {
+    const a=ALBUMS[i];
+    ALB_MAP[a.album+"||"+a.artist]=i;
+    if (!ALB_ARTIST_IDX[a.artist]) ALB_ARTIST_IDX[a.artist]=[];
+    ALB_ARTIST_IDX[a.artist].push(a);
+  }
+  ALB_ARTIST_LIST = Object.keys(ALB_ARTIST_IDX).sort((a,b)=>a.localeCompare(b));
+}
+
+// ── STATE ─────────────────────────────────────────────────────
+const S = {
+  mode:'welcome', letter:'', query:'', page:0,
+  sortBy:'default',
+  weekKey:null, year:null,
+  no1Decade:'', ohwDecade:'', ohwFilter:0,
+  welshDecade:'',
+  albLetter:'', albQuery:'', albPage:0,
+  albWeekKey:null, albYear:null, albNo1Decade:'',
+};
+const PG = 100;
+
+// ── HELPERS ──────────────────────────────────────────────────
+const esc = s => !s?'':String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const ea  = s => !s?'':String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+function setContent(html, cb) {
+  const el=document.getElementById('content');
+  el.style.opacity=0;
+  requestAnimationFrame(()=>{el.innerHTML=html;el.style.transition='opacity 0.22s ease';el.style.opacity=1;if(cb)cb();});
+}
+
+// Find the chart week that covers a given date
+function findWeekForDate(dateStr) {
+  // dateStr: YYYYMMDD
+  const keys = WEEK_INDEX.keys;
+  for (let i=0;i<keys.length-1;i++) {
+    if (dateStr >= keys[i] && dateStr < keys[i+1]) return keys[i];
+  }
+  if (dateStr >= keys[keys.length-1]) return keys[keys.length-1];
+  return keys[0];
+}
+
+function peakClass(p) {
+  const n=parseInt(p); return n===1?'p1':n<=10?'p10':'pn';
+}
+function moveHtml(pos,lw) {
+  const lws=(lw||'').toString();
+  if(!lws||lws==='None'||lws==='') return '<span class="move-new">NEW</span>';
+  const lwn=parseInt(lws),pi=parseInt(pos),d=lwn-pi;
+  if(isNaN(d)) return '<span class="move-new">NEW</span>';
+  if(d>0) return `<span class="move-up">▲${d}</span>`;
+  if(d<0) return `<span class="move-dn">▼${Math.abs(d)}</span>`;
+  return '<span class="move-hold">–</span>';
+}
+function wkBadge(w) {
+  const n=parseInt(w);
+  if(n>=10) return `<span class="wk-badge wk-epic">${n} wks</span>`;
+  if(n>=4)  return `<span class="wk-badge wk-long">${n} wks</span>`;
+  if(n>=2)  return `<span class="wk-badge wk-short">${n} wks</span>`;
+  return `<span class="wk-badge wk-single">1 wk</span>`;
+}
+
+// ── NAVIGATION ───────────────────────────────────────────────
+function closeGroups() {
+  ['singles','albums','explore'].forEach(g => {
+    document.getElementById('grp-'+g+'-btn')?.classList.remove('open');
+    document.getElementById('grp-'+g+'-drop')?.classList.remove('open');
+  });
+}
+function toggleGroup(g) {
+  const all = ['singles','albums','explore'];
+  all.forEach(name => {
+    if (name !== g) {
+      document.getElementById('grp-'+name+'-btn')?.classList.remove('open');
+      document.getElementById('grp-'+name+'-drop')?.classList.remove('open');
+    }
+  });
+  document.getElementById('grp-'+g+'-btn')?.classList.toggle('open');
+  document.getElementById('grp-'+g+'-drop')?.classList.toggle('open');
+}
+document.addEventListener('click', e => {
+  if (!e.target.closest('.nav-group')) closeGroups();
+});
+
+function setMode(mode) {
+  S.mode=mode; S.letter=''; S.query=''; S.page=0;
+  document.getElementById('search-input').value='';
+  // nav state
+  ['mi-songs','mi-artists','mi-weekly','mi-no1','mi-xmas',
+   'mi-alb-songs','mi-alb-artists','mi-alb-weekly','mi-alb-no1',
+   'mi-birthday','mi-date','mi-era','mi-welsh','mi-ohw','mi-stats'].forEach(m=>document.getElementById(m)?.classList.remove('active'));
+  document.getElementById('mi-'+mode)?.classList.add('active');
+  // group highlight
+  const singlesItems=['songs','artists','weekly','no1','xmas'];
+  const albumItems=['alb-songs','alb-artists','alb-weekly','alb-no1'];
+  const exploreItems=['birthday','date','era','welsh','ohw','stats'];
+  document.getElementById('grp-singles-btn')?.classList.toggle('has-active', singlesItems.includes(mode));
+  document.getElementById('grp-albums-btn')?.classList.toggle('has-active', albumItems.includes(mode));
+  document.getElementById('grp-explore-btn')?.classList.toggle('has-active', exploreItems.includes(mode));
+  // sidebar visibility
+  const showSidebar = ['songs','artists','weekly','no1','xmas','ohw','welsh','alb-songs','alb-artists','alb-weekly','alb-no1'].includes(mode);
+  document.getElementById('sidebar').style.display = showSidebar ? '' : 'none';
+  // sidebar controls
+  document.getElementById('alpha-bar').style.display = ['songs','artists','alb-songs','alb-artists'].includes(mode)?'flex':'none';
+  document.getElementById('filter-bar').style.display = ['no1','ohw','welsh','alb-no1'].includes(mode)?'flex':'none';
+  document.getElementById('sidebar-year').style.display = ['weekly','alb-weekly'].includes(mode)?'block':'none';
+  const sb = document.getElementById('sort-bar');
+  if(sb) sb.style.display = ['songs','alb-songs'].includes(mode)?'block':'none';
+  if(!['songs','alb-songs'].includes(mode)) { S.sortBy='default'; document.querySelectorAll('.sort-btn').forEach(b=>b.classList.toggle('active',b.id==='sort-default')); }
+  // labels
+  const labels = {songs:'Songs',artists:'Artists',weekly:'Weeks',no1:'Number Ones',xmas:'Christmas',ohw:'One-Hit Wonders',welsh:'Welsh Artists','alb-songs':'Albums','alb-artists':'Album Artists','alb-weekly':'Album Weeks','alb-no1':'Album No.1s',stats:'Statistics'};
+  document.getElementById('search-label').textContent = labels[mode]||'Search';
+  document.getElementById('search-input').placeholder = ['weekly','alb-weekly'].includes(mode)?'Search years…':mode==='no1'?'Search number ones…':mode==='alb-no1'?'Search album no.1s…':mode==='xmas'?'Search Xmas No.1s…':mode==='welsh'?'Search Welsh artists…':mode==='ohw'?'Search one-hit wonders…':mode==='stats'?'':  'Search songs, artists, albums…';
+  // Render
+  buildAlphaBar();
+  if(mode==='songs') { renderSongSidebar(); renderWelcome(); }
+  else if(mode==='artists') { renderArtistSidebar(); renderWelcome(); }
+  else if(mode==='weekly') { buildYearSelect(); renderWeeklySidebar(); renderWelcome(); }
+  else if(mode==='no1') { buildDecadeFilter('no1'); renderNo1Sidebar(); renderNo1Page(); }
+  else if(mode==='xmas') { renderXmasSidebar(); renderXmasPage(); }
+  else if(mode==='ohw') { buildDecadeFilter('ohw'); renderOhwSidebar(); renderOhwPage(); }
+  else if(mode==='welsh') { renderWelshSidebar(); renderWelshPage(); }
+  else if(mode==='birthday') { renderBirthdayPage(); }
+  else if(mode==='date') { renderDatePage(); }
+  else if(mode==='era') { renderEraPage(); }
+  else if(mode==='alb-songs') { renderAlbSidebar(); renderWelcome(); }
+  else if(mode==='alb-artists') { renderAlbArtistSidebar(); renderWelcome(); }
+  else if(mode==='alb-weekly') { buildAlbYearSelect(); renderAlbWeeklySidebar(); renderWelcome(); }
+  else if(mode==='alb-no1') { buildDecadeFilter('alb-no1'); renderAlbNo1Sidebar(); renderAlbNo1Page(); }
+  else if(mode==='stats') { renderStatsPage(); }
+  else renderWelcome();
+}
+
+// ── ALPHA BAR ────────────────────────────────────────────────
+function buildAlphaBar() {
+  const letters='#ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  const activeLetter = ['alb-songs','alb-artists'].includes(S.mode) ? S.albLetter : S.letter;
+  document.getElementById('alpha-bar').innerHTML=letters.map(l=>
+    `<button class="alpha-btn${activeLetter===l?' active':''}" onclick="filterLetter('${l}')" aria-label="${l}">${l}</button>`).join('');
+}
+function filterLetter(l) {
+  if(['alb-songs','alb-artists'].includes(S.mode)) {
+    S.albLetter=S.albLetter===l?'':l; S.albPage=0; buildAlphaBar();
+    if(S.mode==='alb-songs') renderAlbSidebar();
+    else renderAlbArtistSidebar();
+    return;
+  }
+  S.letter=S.letter===l?'':l; S.page=0; buildAlphaBar();
+  if(S.mode==='songs') renderSongSidebar();
+  else if(S.mode==='artists') renderArtistSidebar();
+}
+
+// ── DECADE FILTER ────────────────────────────────────────────
+function buildDecadeFilter(which) {
+  const decades=['All','1950s','1960s','1970s','1980s','1990s','2000s','2010s','2020s'];
+  const active = which==='no1' ? S.no1Decade : which==='alb-no1' ? S.albNo1Decade : S.ohwDecade;
+  document.getElementById('filter-bar').innerHTML=decades.map(d=>
+    `<button class="filter-chip${(active===d||(d==='All'&&!active))?' active':''}" onclick="filterDecade('${which}','${d}')">${d}</button>`).join('');
+}
+function filterDecade(which,d) {
+  if(which==='no1') { S.no1Decade=d==='All'?'':d; renderNo1Sidebar(); renderNo1Page(); }
+  else if(which==='alb-no1') { S.albNo1Decade=d==='All'?'':d; renderAlbNo1Sidebar(); renderAlbNo1Page(); }
+  else { S.ohwDecade=d==='All'?'':d; renderOhwSidebar(); renderOhwPage(); }
+  buildDecadeFilter(which);
+}
+
+// ── SEARCH ───────────────────────────────────────────────────
+function onSearch(q) {
+  if(['alb-songs','alb-artists','alb-no1'].includes(S.mode)) {
+    S.albQuery=q.toLowerCase(); S.albPage=0;
+    if(S.mode==='alb-songs') renderAlbSidebar();
+    else if(S.mode==='alb-artists') renderAlbArtistSidebar();
+    else if(S.mode==='alb-no1') { renderAlbNo1Sidebar(); renderAlbNo1Page(); }
+    return;
+  }
+  S.query=q.toLowerCase(); S.letter=''; S.page=0; buildAlphaBar();
+  if(S.mode==='songs') renderSongSidebar();
+  else if(S.mode==='artists') renderArtistSidebar();
+  else if(S.mode==='weekly') renderWeeklySidebar();
+  else if(S.mode==='no1') { renderNo1Sidebar(); renderNo1Page(); }
+  else if(S.mode==='xmas') renderXmasSidebar();
+  else if(S.mode==='ohw') { renderOhwSidebar(); renderOhwPage(); }
+  else if(S.mode==='welsh') renderWelshSidebar();
+}
+
+// ── PAGINATION ───────────────────────────────────────────────
+function mkPagination(pages, total, fn) {
+  if(pages<=1) return '';
+  const p=S.page;
+  let h=`<div class="pagination">
+    <button class="pg-btn" ${p===0?'disabled':''} onclick="S.page=${p-1};${fn}()">‹</button>`;
+  for(let i=0;i<pages;i++) {
+    if(pages<=7||Math.abs(i-p)<=2||i===0||i===pages-1)
+      h+=`<button class="pg-btn${i===p?' active':''}" onclick="S.page=${i};${fn}()">${i+1}</button>`;
+    else if(Math.abs(i-p)===3) h+=`<span class="pg-info">…</span>`;
+  }
+  h+=`<button class="pg-btn" ${p===pages-1?'disabled':''} onclick="S.page=${p+1};${fn}()">›</button>
+    <span class="pg-info">${total.toLocaleString()} total</span></div>`;
+  return h;
+}
+
+// ── SONGS ────────────────────────────────────────────────────
+function getFilteredSongs() {
+  const q=S.query, l=S.letter;
+  let arr;
+  if(q) arr = SONGS.filter(s=>s.song.toLowerCase().includes(q)||s.artist.toLowerCase().includes(q));
+  else if(l) arr = SONGS.filter(s=>{
+    const c=s.song.replace(/^(THE |A |AN )/i,'');
+    return l==='#' ? !/^[A-Z]/i.test(c) : c.toUpperCase().startsWith(l);
+  });
+  else arr = SONGS;
+  if (S.sortBy==='peak')  arr = [...arr].sort((a,b)=>parseInt(a.peak)-parseInt(b.peak));
+  else if (S.sortBy==='weeks') arr = [...arr].sort((a,b)=>parseInt(b.weeks)-parseInt(a.weeks));
+  else if (S.sortBy==='date')  arr = [...arr].sort((a,b)=>a.entry.localeCompare(b.entry));
+  return arr;
+}
+function setSortBy(v) {
+  S.sortBy=v; S.page=0;
+  document.querySelectorAll('.sort-btn').forEach(b=>b.classList.toggle('active', b.id==='sort-'+v));
+  if (S.mode==='songs') renderSongSidebar();
+  else if (S.mode==='alb-songs') renderAlbSidebar();
+}
+function renderSongSidebar() {
+  const songs=getFilteredSongs(), total=songs.length, start=S.page*PG;
+  const slice=songs.slice(start,start+PG), pages=Math.ceil(total/PG);
+  const items=slice.map(s=>{
+    const p=parseInt(s.peak);
+    const badge=p===1?'<span class="badge badge-no1" aria-label="Number One">No.1</span>':p<=10?'<span class="badge badge-top10">Top 10</span>':'';
+    return `<div class="s-item" onclick="selSong(${SONG_MAP[s.song+'||'+s.artist]??-1})" role="button" tabindex="0">
+      <div class="s-item-title">${esc(s.song)}${badge}</div>
+      <div class="s-item-sub">${esc(s.artist)}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('sidebar-list').innerHTML = (items||'<div class="empty-state">No songs found</div>') + mkPagination(pages,total,'renderSongSidebar');
+}
+
+function selSong(si) { const s=typeof si==='number'?SONGS[si]:si; if(!s) return;
+  const p=parseInt(s.peak), isNo1=p===1;
+  const pLabel = isNo1 ? '★ No.1' : '#'+s.peak;
+  // Re-release detection
+  const reRelMatch = s.song.match(/\{(\d{4})\}/);
+  const isReRelease = !!reRelMatch;
+  const origSong = isReRelease ? s.song.replace(/\s*\{\d{4}\}/, '') : null;
+  // Remix detection  
+  const isRemix = /\b(remix|rmx|re-mix|mix\b)/i.test(s.song);
+  // Chart run trajectory
+  const trajKey = s.song + '||' + s.artist;
+  const traj = SONG_TRAJ[trajKey] || [];
+  let trajHtml = '';
+  if (traj.length > 0) {
+    const cells = traj.map(([dk,pos]) => {
+      const lbl = WEEK_INDEX.labels[dk] ? WEEK_INDEX.labels[dk].split('-')[0].trim() : dk;
+      const cls = pos===1?'tr-no1':pos<=3?'tr-top3':pos<=10?'tr-top10':pos<=40?'tr-top40':'tr-outer';
+      return `<span class="traj-cell ${cls}" title="Week ending ${lbl}: #${pos}">${pos}</span>`;
+    }).join('');
+    trajHtml = `
+      <div class="traj-section">
+        <div class="traj-label">Chart Run <span class="traj-weeks">${traj.length} week${traj.length>1?'s':''}</span></div>
+        <div class="traj-track">${cells}</div>
+        <div class="traj-legend">
+          <span class="traj-cell tr-no1 sm">1</span><span class="tl">No.1</span>
+          <span class="traj-cell tr-top3 sm">3</span><span class="tl">Top 3</span>
+          <span class="traj-cell tr-top10 sm">10</span><span class="tl">Top 10</span>
+          <span class="traj-cell tr-top40 sm">40</span><span class="tl">Top 40</span>
+          <span class="traj-cell tr-outer sm">75</span><span class="tl">Outer</span>
+        </div>
+      </div>`;
+  }
+  // Multiple No.1 runs?
+  const multiRuns = NUMBER_ONES.filter(r=>r.song===s.song && r.artist===s.artist);
+  let multiHtml = '';
+  if (multiRuns.length > 1) {
+    multiHtml = `<div class="multi-no1-badge">🔄 Reached No.1 ${multiRuns.length} times</div>`;
+  }
+  // CSV export
+  const csvRows = [['Week','Position'],  ...traj.map(([dk,pos]) => [WEEK_INDEX.labels[dk]||dk, pos])];
+  const csvData = encodeURIComponent(csvRows.map(r=>r.join(',')).join('\n'));
+  const csvBtn = traj.length > 0 ? `<a class="action-btn secondary" style="text-decoration:none;display:inline-block;margin-top:var(--sp-2)" href="data:text/csv;charset=utf-8,${csvData}" download="${s.song.replace(/[^\w]/g,'_')}_chart_run.csv">⬇ Export Chart Run CSV</a>` : '';
+  setContent(`
+    <div class="card page-fade">
+      <div class="section-label">${esc(s.artist)}</div>
+      <div style="display:flex;align-items:baseline;gap:var(--sp-2);flex-wrap:wrap">
+        <h1 style="font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);margin-bottom:var(--sp-2);line-height:1.1">${esc(isReRelease?origSong:s.song)}</h1>
+        ${isReRelease?`<span class="badge badge-rerelease">Re-release ${reRelMatch[1]}</span>`:''}
+        ${isRemix?`<span class="badge badge-remix">Remix</span>`:''}
+      </div>
+      ${multiHtml}
+      <div class="stat-row">
+        <div class="stat-tile"><div class="stat-n${isNo1?' gold':''}">${pLabel}</div><div class="stat-l">Peak Position</div></div>
+        <div class="stat-tile"><div class="stat-n">${s.weeks}</div><div class="stat-l">Weeks on Chart</div></div>
+        <div class="stat-tile" style="flex:2"><div class="stat-n" style="font-size:var(--text-lg)">${esc(s.entry)}</div><div class="stat-l">Chart Entry</div></div>
+      </div>
+      ${trajHtml}
+      <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-top:var(--sp-4)">
+        <button class="action-btn secondary" onclick="selArtist(${ARTIST_LIST.indexOf(s.artist)})">All songs by ${esc(s.artist)} →</button>
+        ${csvBtn}
+      </div>
+    </div>`);
+}
+
+// ── ARTISTS ──────────────────────────────────────────────────
+function getFilteredArtists() {
+  const q=S.query,l=S.letter;
+  let keys=Object.keys(ARTIST_IDX).sort((a,b)=>a.localeCompare(b));
+  if(q) return keys.filter(a=>a.toLowerCase().includes(q));
+  if(l) return keys.filter(a=>{
+    const c=a.replace(/^(THE |A |AN )/i,'');
+    return l==='#' ? !/^[A-Z]/i.test(c) : c.toUpperCase().startsWith(l);
+  });
+  return keys;
+}
+function renderArtistSidebar() {
+  const artists=getFilteredArtists(),total=artists.length,start=S.page*PG;
+  const slice=artists.slice(start,start+PG),pages=Math.ceil(total/PG);
+  const items=slice.map(a=>{
+    const songs=ARTIST_IDX[a],best=Math.min(...songs.map(s=>parseInt(s.peak)||999));
+    const badge=best===1?'<span class="badge badge-no1">No.1</span>':best<=10?'<span class="badge badge-top10">Top 10</span>':'';
+    return `<div class="s-item" onclick="selArtist(${ARTIST_LIST.indexOf(a)})" role="button" tabindex="0">
+      <div class="s-item-title">${esc(a)}${badge}</div>
+      <div class="s-item-sub">${songs.length} entr${songs.length===1?'y':'ies'}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('sidebar-list').innerHTML = (items||'<div class="empty-state">No artists found</div>') + mkPagination(pages,total,'renderArtistSidebar');
+}
+
+function selArtist(ni) {
+  const name=typeof ni==='number'?ARTIST_LIST[ni]:ni;
+  const songs=ARTIST_IDX[name]; if(!songs) return;
+  songs.sort((a,b)=>(parseInt(a.peak)||999)-(parseInt(b.peak)||999));
+  const best=Math.min(...songs.map(s=>parseInt(s.peak)||999));
+  const no1s=songs.filter(s=>parseInt(s.peak)===1).length;
+  const top10=songs.filter(s=>parseInt(s.peak)<=10).length;
+  const rows=songs.map(s=>{
+    const p=parseInt(s.peak),pc=peakClass(p);
+    return `<tr>
+      <td><span class="song-link" onclick="selSong(${SONG_MAP[s.song+'||'+s.artist]??-1})">${esc(s.song)}</span></td>
+      <td style="text-align:center"><span class="peak-chip ${pc}">${s.peak}</span></td>
+      <td class="mono-cell">${s.weeks}</td>
+      <td class="mono-cell" style="font-size:var(--text-xs);color:var(--muted)">${esc(s.entry)}</td>
+    </tr>`;
+  }).join('');
+  setContent(`
+    <div class="card page-fade">
+      <h1 style="font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);margin-bottom:var(--sp-2)">${esc(name)}</h1>
+      <p style="color:var(--muted);font-size:var(--text-sm);margin-bottom:var(--sp-5)">
+        ${songs.length} chart entr${songs.length===1?'y':'ies'}
+        ${best<=1?' · <strong style=color:var(--gold)>UK Number One artist</strong>':' · Best peak: #'+best}
+        ${no1s?' · '+no1s+' No.1'+(no1s>1?'s':''):''}
+        ${top10?' · '+top10+' Top 10'+(top10>1?'s':''):''}</p>
+      <div class="section-label">Complete Chart History</div>
+      <table class="chart-table">
+        <thead><tr><th>Song</th><th style="text-align:center">Peak</th><th>Weeks</th><th>Chart Entry</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`);
+}
+
+// ── WEEKLY CHARTS ────────────────────────────────────────────
+function buildYearSelect() {
+  const years=[...new Set(WEEK_INDEX.keys.map(k=>k.slice(0,4)))].sort().reverse();
+  const sel=document.getElementById('year-select');
+  sel.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join('');
+  if(!S.year) S.year=years[0];
+  sel.value=S.year;
+}
+function onYearChange(y) { S.year=y; S.weekKey=null; renderWeeklySidebar(); }
+function onYearChangeCombined(y) {
+  if(S.mode==='alb-weekly') { S.albYear=y; S.albWeekKey=null; renderAlbWeeklySidebar(); }
+  else { onYearChange(y); }
+}
+function renderWeeklySidebar() {
+  const q=S.query;
+  let keys=WEEK_INDEX.keys;
+  if(!q&&S.year) keys=keys.filter(k=>k.startsWith(S.year));
+  if(q) keys=keys.filter(k=>WEEK_INDEX.labels[k].toLowerCase().includes(q));
+  const list=[...keys].reverse();
+  document.getElementById('sidebar-list').innerHTML=list.map(k=>
+    `<div class="s-item${S.weekKey===k?' active':''}" onclick="selWeek('${k}')" role="button" tabindex="0">
+      <div class="s-item-title" style="font-size:var(--text-xs)">${esc(WEEK_INDEX.labels[k])}</div>
+    </div>`).join('')||'<div class="empty-state">No weeks found</div>';
+}
+function selWeek(key) {
+  S.weekKey=key; renderWeeklySidebar();
+  const entries=RAW_WEEKLY[key];
+  if(!entries){setContent('<div class="empty-state">No chart data for this week.</div>');return;}
+  const label=WEEK_INDEX.labels[key]||key;
+  const no1=entries.find(e=>e[0]==='1')||entries[0];
+  const keys=WEEK_INDEX.keys, idx=keys.indexOf(key);
+  const prevK=idx>0?keys[idx-1]:null, nextK=idx<keys.length-1?keys[idx+1]:null;
+  const rows=entries.map(e=>{
+    const[pos,song,artist,lw,peak,weeks]=e;
+    const pi=parseInt(pos),posClass=pi===1?'pos-1':pi===2?'pos-2':pi===3?'pos-3':'';
+    const pc=peakClass(peak);
+    return `<tr>
+      <td class="pos-cell ${posClass}" aria-label="Position ${pos}">${pos}</td>
+      <td style="width:32px">${moveHtml(pos,lw)}</td>
+      <td><span class="song-link" onclick="selSong(${SONG_MAP[song+'||'+artist]??-1})">${esc(song)}</span></td>
+      <td><span class="artist-link" onclick="selArtist(${ARTIST_LIST.indexOf(artist)})">${esc(artist)}</span></td>
+      <td style="text-align:center"><span class="peak-chip ${pc}" title="Peak position: ${peak}">${peak}</span></td>
+      <td style="text-align:right;font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--muted)">${weeks}</td>
+    </tr>`;
+  }).join('');
+  setContent(`
+    <div class="page-fade">
+      <div style="display:flex;align-items:baseline;gap:var(--sp-4);margin-bottom:var(--sp-4)">
+        <div class="week-title-text">${esc(label)}</div>
+        <div style="color:var(--faint);font-size:var(--text-xs);font-family:'DM Mono',monospace">${entries.length} entries</div>
+      </div>
+      <div class="week-nav">
+        <button class="week-nav-btn" ${!prevK?'disabled':''} onclick="selWeek('${prevK||''}')">← Previous week</button>
+        <button class="week-nav-btn" ${!nextK?'disabled':''} onclick="selWeek('${nextK||''}')">Next week →</button>
+      </div>
+      <div class="no1-hero">
+        <div class="no1-crown">👑</div>
+        <div>
+          <div class="no1-meta">Number One This Week</div>
+          <div class="no1-song">${esc(no1[1])}</div>
+          <div class="no1-artist">${esc(no1[2])}</div>
+        </div>
+      </div>
+      <table class="chart-table">
+        <thead><tr>
+          <th style="width:36px">Pos</th><th style="width:32px"></th>
+          <th>Song</th><th>Artist</th>
+          <th style="text-align:center;width:40px" title="Peak position">Pk</th>
+          <th style="text-align:right;width:40px">Wks</th>
+        </tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`);
+}
+function jumpToSong(song,artist) {
+  setMode('songs');
+  const idx=SONG_MAP[song+'||'+artist]??-1;
+  if(idx>=0) selSong(idx);
+}
+
+// ── NUMBER ONES ──────────────────────────────────────────────
+function getFilteredNo1s() {
+  let list=NUMBER_ONES;
+  const q=S.query;
+  const dec=S.no1Decade;
+  if(q) list=list.filter(n=>n.song.toLowerCase().includes(q)||n.artist.toLowerCase().includes(q));
+  if(dec) {
+    const yr0=parseInt(dec.slice(0,4));
+    list=list.filter(n=>{const y=parseInt(n.date_key.slice(0,4));return y>=yr0&&y<yr0+10;});
+  }
+  return list;
+}
+function renderNo1Sidebar() {
+  const list=getFilteredNo1s();
+  document.getElementById('sidebar-list').innerHTML=list.map(n=>{
+    const w=parseInt(n.consecutive_weeks);
+    return `<div class="s-item" onclick="scrollToNo1('${n.date_key}')" role="button" tabindex="0">
+      <div class="s-item-title" style="font-size:var(--text-xs)">${esc(n.song)}${w>=5?'<span class="badge badge-no1">'+w+'w</span>':''}</div>
+      <div class="s-item-sub">${esc(n.artist)} · ${w} wk${w>1?'s':''}</div>
+    </div>`;
+  }).join('')||'<div class="empty-state">No results</div>';
+}
+function scrollToNo1(key) {
+  const el=document.getElementById('no1-'+key);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'center'});
+    el.style.background='rgba(201,168,76,0.12)';setTimeout(()=>el.style.background='',1200);}
+}
+function renderNo1Page() {
+  const list=getFilteredNo1s();
+  const longestRun=NUMBER_ONES.reduce((a,b)=>parseInt(a.consecutive_weeks)>=parseInt(b.consecutive_weeks)?a:b);
+  const artistCounts={};
+  for(const n of NUMBER_ONES) artistCounts[n.artist]=(artistCounts[n.artist]||0)+1;
+  const topArtist=Object.entries(artistCounts).sort((a,b)=>b[1]-a[1])[0];
+  const rows=list.map(n=>{
+    const w=parseInt(n.consecutive_weeks);
+    const cls=w>=10?'wk-epic':w>=4?'wk-long':w>=2?'wk-short':'wk-single';
+    return `<div class="no1-list-row" id="no1-${n.date_key}">
+      <div class="no1-date">${esc(n.first_week.split('-')[0].trim())}<br><span class="no1-yr">${n.date_key.slice(0,4)}</span></div>
+      <div>
+        <div class="no1-row-song" onclick="selSong(${SONG_MAP[n.song+'||'+n.artist]??-1})">${esc(n.song)}</div>
+        <div class="no1-row-artist" onclick="selArtist(${ARTIST_LIST.indexOf(n.artist)})">${esc(n.artist)}</div>
+      </div>
+      <div><span class="wk-badge ${cls}">${w} wk${w>1?'s':''}</span></div>
+    </div>`;
+  }).join('');
+  setContent(`
+    <div class="page-fade">
+      <div class="card-hero">
+        <div class="section-label">UK Singles Chart</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--gold);margin-bottom:var(--sp-2)">★ All UK Number Ones</h1>
+        <p style="color:var(--muted);font-size:var(--text-sm)">Every chart-topper since 14 November 1952 — ${NUMBER_ONES.length.toLocaleString()} number one runs across 72 years</p>
+        <div class="stat-row" style="margin-top:var(--sp-5)">
+          <div class="stat-tile"><div class="stat-n">${NUMBER_ONES.length.toLocaleString()}</div><div class="stat-l">No.1 Runs</div></div>
+          <div class="stat-tile" style="flex:2"><div class="stat-n" style="font-size:var(--text-base)">${esc(longestRun.song)}</div><div class="stat-l">Longest run (${longestRun.consecutive_weeks} weeks)</div></div>
+          <div class="stat-tile" style="flex:2"><div class="stat-n" style="font-size:var(--text-base)">${esc(topArtist[0])}</div><div class="stat-l">Most No.1s (${topArtist[1]})</div></div>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">${rows||'<div class="empty-state">No results matching your search</div>'}</div>
+    </div>`);
+}
+
+// ── CHRISTMAS ────────────────────────────────────────────────
+function renderXmasSidebar() {
+  const q=S.query;
+  let list=[...XMAS_NO1S].reverse();
+  if(q) list=list.filter(x=>x.title.toLowerCase().includes(q)||x.artist.toLowerCase().includes(q)||x.year.includes(q));
+  document.getElementById('sidebar-list').innerHTML=list.map(x=>
+    `<div class="s-item" onclick="scrollToXmas('${x.year}')" role="button" tabindex="0">
+      <div class="s-item-title" style="font-size:var(--text-xs)">🎄 ${esc(x.year)} — ${esc(x.title)}</div>
+      <div class="s-item-sub">${esc(x.artist)}</div>
+    </div>`).join('')||'<div class="empty-state">No results</div>';
+}
+function scrollToXmas(y) {
+  const el=document.getElementById('xmas-'+y);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.background='rgba(181,39,30,0.15)';setTimeout(()=>el.style.background='',1200);}
+}
+function renderXmasPage() {
+  const titleCounts={};
+  for(const x of XMAS_NO1S) {
+    const k=x.title.toUpperCase()+'||'+x.artist.toUpperCase();
+    titleCounts[k]=(titleCounts[k]||0)+1;
+  }
+  const rows=XMAS_NO1S.map(x=>{
+    const k=x.title.toUpperCase()+'||'+x.artist.toUpperCase();
+    const rpt=titleCounts[k]>1?`<span class="repeat-badge">${titleCounts[k]}×</span>`:'';
+    return `<tr id="xmas-${x.year}">
+      <td style="font-family:'DM Mono',monospace;font-weight:700;color:#d06060;font-size:var(--text-base);width:60px">${x.year}</td>
+      <td><span class="song-link" onclick="selSong(${SONG_MAP[x.title.toUpperCase()+'||'+x.artist.toUpperCase()]??-1})">${esc(x.title)}</span>${rpt}</td>
+      <td><span class="artist-link" onclick="selArtist(${ARTIST_LIST.indexOf(x.artist.toUpperCase())})">${esc(x.artist)}</span></td>
+    </tr>`;
+  }).join('');
+  setContent(`
+    <div class="page-fade">
+      <div class="xmas-header">
+        <div class="section-label" style="color:#d06060">UK Singles Chart · Festive Edition</div>
+        <h1 class="xmas-title-text">🎄 Christmas Number Ones</h1>
+        <p style="color:#7a4545;font-size:var(--text-sm);margin-top:var(--sp-2)">The nation's most hotly contested chart position — ${XMAS_NO1S.length} festive chart-toppers from 1952 to 2025</p>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <table class="chart-table">
+          <thead><tr><th>Year</th><th>Song</th><th>Artist</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>`);
+}
+
+// ── 🎂 BIRTHDAY NO.1 FINDER ──────────────────────────────────
+function renderBirthdayPage() {
+  setContent(`
+    <div class="page-fade">
+      <div class="feature-header birthday" style="border:1px solid rgba(130,100,200,0.3)">
+        <div class="section-label" style="color:#a080e0">Personal Chart History</div>
+        <h1 class="feature-title">🎂 Your Birthday No.1s</h1>
+        <p class="feature-sub">Enter your date of birth and discover the UK Number One single on every birthday you've had.</p>
+        <div class="input-row">
+          <div class="input-group">
+            <label class="input-label" for="bday-day">Day</label>
+            <select class="input-field" id="bday-day" style="width:80px">${Array.from({length:31},(_,i)=>`<option value="${String(i+1).padStart(2,'0')}">${i+1}</option>`).join('')}</select>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="bday-month">Month</label>
+            <select class="input-field" id="bday-month" style="width:130px">
+              ${['January','February','March','April','May','June','July','August','September','October','November','December'].map((m,i)=>`<option value="${String(i+1).padStart(2,'0')}">${m}</option>`).join('')}
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="bday-year">Year</label>
+            <input class="input-field" type="number" id="bday-year" value="1980" min="1900" max="2006" style="width:100px" placeholder="e.g. 1980">
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="bday-name">Name (optional)</label>
+            <input class="input-field" id="bday-name" placeholder="e.g. Sarah" style="width:140px">
+          </div>
+          <button class="action-btn" onclick="runBirthdayFinder()">Find My Birthday No.1s →</button>
+        </div>
+      </div>
+      <div id="bday-results"></div>
+    </div>`);
+}
+
+function runBirthdayFinder() {
+  const day=document.getElementById('bday-day').value;
+  const month=document.getElementById('bday-month').value;
+  const year=parseInt(document.getElementById('bday-year').value);
+  const name=document.getElementById('bday-name').value.trim();
+  if(!year||year<1900||year>2024){
+    document.getElementById('bday-results').innerHTML='<div class="note-box">Please enter a valid birth year between 1900 and 2024.</div>';
+    return;
+  }
+  const chartStart=1952;
+  const results=[];
+  const currentYear=2024;
+  for(let age=0; year+age<=currentYear; age++) {
+    const bYear=year+age;
+    if(bYear<chartStart) continue;
+    const dateKey=`${bYear}${month}${day}`;
+    const weekKey=findWeekForDate(dateKey);
+    const entries=RAW_WEEKLY[weekKey];
+    if(!entries) continue;
+    const no1=entries.find(e=>e[0]==='1');
+    if(!no1) continue;
+    results.push({age,year:bYear,song:no1[1],artist:no1[2],weekLabel:WEEK_INDEX.labels[weekKey]});
+  }
+  if(!results.length) {
+    document.getElementById('bday-results').innerHTML='<div class="note-box">No chart data found for those dates. The UK charts began on 14 November 1952.</div>';
+    return;
+  }
+  const personLabel = name ? name+"'s" : "Your";
+  const shareLines = results.map(r=>`Age ${r.age} (${r.year}): "${r.song}" by ${r.artist}`).join('\n');
+  const shareText = `${personLabel} Birthday No.1s\n${Array(30).fill('─').join('')}\n${shareLines}\n\nGenerated at UK Charts Archive`;
+  const cards=results.reverse().map(r=>{
+    const isFirst=r.age===0;
+    const found=SONGS.find(s=>s.song===r.song&&s.artist===r.artist);
+    return `<div class="bday-card${isFirst?' highlight':''}">
+      <div>
+        <div class="bday-age">${r.age===0?'Born':r.age}</div>
+        <div class="bday-age-label">${r.age===0?r.year:r.age===1?'1st':r.age===2?'2nd':r.age===3?'3rd':r.age+'th'}</div>
+      </div>
+      <div>
+        <div class="bday-year-label">${r.year} — ${esc(r.weekLabel)}</div>
+        <div class="bday-song" onclick="selSong(${found?SONG_MAP[found.song+'||'+found.artist]??-1:-1})">${esc(r.song)}</div>
+        <div class="bday-artist" onclick="selArtist(${ARTIST_LIST.indexOf(r.artist)})">${esc(r.artist)}</div>
+      </div>
+      <div>${isFirst?'<span class="badge badge-no1" style="font-size:1rem;padding:4px 10px">🎂</span>':''}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('bday-results').innerHTML=`
+    <div class="note-box" style="margin-bottom:var(--sp-4)">
+      Showing ${personLabel.toLowerCase()} ${results.length} birthday No.1${results.length>1?'s':''}. The chart data runs from November 1952 to March 2026.
+    </div>
+    <div class="birthday-timeline">${cards}</div>
+    <div class="section-label" style="margin-top:var(--sp-6)">Share ${personLabel} Birthday No.1s</div>
+    <div class="share-box" onclick="this.select?this.select():window.getSelection().selectAllChildren(this)" title="Click to select all">${esc(shareText)}</div>`;
+}
+
+// ── 📅 DATE EXPLORER ─────────────────────────────────────────
+function renderDatePage() {
+  setContent(`
+    <div class="page-fade">
+      <div class="feature-header date-explorer" style="border:1px solid rgba(42,110,63,0.3)">
+        <div class="section-label" style="color:#60c080">Music History</div>
+        <h1 class="feature-title">📅 Chart History Explorer</h1>
+        <p class="feature-sub">Enter any date and discover the UK Top 10 from that week — with chart context and nostalgic notes.</p>
+        <div class="input-row">
+          <div class="input-group">
+            <label class="input-label" for="exp-day">Day</label>
+            <select class="input-field" id="exp-day" style="width:80px">${Array.from({length:31},(_,i)=>`<option value="${String(i+1).padStart(2,'0')}">${i+1}</option>`).join('')}</select>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="exp-month">Month</label>
+            <select class="input-field" id="exp-month" style="width:130px">
+              ${['January','February','March','April','May','June','July','August','September','October','November','December'].map((m,i)=>`<option value="${String(i+1).padStart(2,'0')}">${m}</option>`).join('')}
+            </select>
+          </div>
+          <div class="input-group">
+            <label class="input-label" for="exp-year">Year</label>
+            <input class="input-field" type="number" id="exp-year" value="1985" min="1952" max="2026" style="width:100px">
+          </div>
+          <button class="action-btn" onclick="runDateExplorer()">Show That Week's Chart →</button>
+        </div>
+      </div>
+      <div id="exp-results"></div>
+    </div>`);
+}
+
+function runDateExplorer() {
+  const day=document.getElementById('exp-day').value;
+  const month=document.getElementById('exp-month').value;
+  const year=parseInt(document.getElementById('exp-year').value);
+  if(!year||year<1952||year>2024) {
+    document.getElementById('exp-results').innerHTML='<div class="note-box">Charts are available from November 1952 to March 2026.</div>';
+    return;
+  }
+  const dateKey=`${year}${month}${day}`;
+  const weekKey=findWeekForDate(dateKey);
+  const entries=RAW_WEEKLY[weekKey];
+  if(!entries) {
+    document.getElementById('exp-results').innerHTML='<div class="note-box">No chart data found near that date.</div>';
+    return;
+  }
+  const label=WEEK_INDEX.labels[weekKey];
+  const top10=entries.slice(0,10);
+  const no1=top10[0];
+  const ctx=YEAR_CTX[String(year)];
+  const rows=top10.map((e,i)=>{
+    const[pos,song,artist,lw,peak,weeks]=e;
+    const pc=peakClass(peak);
+    return `<tr>
+      <td class="pos-cell ${parseInt(pos)===1?'pos-1':parseInt(pos)===2?'pos-2':parseInt(pos)===3?'pos-3':''}">${pos}</td>
+      <td style="width:32px">${moveHtml(pos,lw)}</td>
+      <td><span class="song-link" onclick="selSong(${SONG_MAP[song+'||'+artist]??-1})">${esc(song)}</span></td>
+      <td><span class="artist-link" onclick="selArtist(${ARTIST_LIST.indexOf(artist)})">${esc(artist)}</span></td>
+      <td style="text-align:center"><span class="peak-chip ${pc}">${peak}</span></td>
+    </tr>`;
+  }).join('');
+  const nearestNote = dateKey!==weekKey ? `<div class="note-box">Showing the chart week nearest to your chosen date: <strong>${esc(label)}</strong></div>` : '';
+  document.getElementById('exp-results').innerHTML=`
+    ${nearestNote}
+    <div class="no1-hero" style="margin-bottom:var(--sp-4)">
+      <div class="no1-crown">👑</div>
+      <div>
+        <div class="no1-meta">Number One · ${esc(label)}</div>
+        <div class="no1-song">${esc(no1[1])}</div>
+        <div class="no1-artist">${esc(no1[2])}</div>
+      </div>
+    </div>
+    ${ctx?`<div class="era-context"><strong>${year}:</strong> ${esc(ctx)}</div>`:''}
+    <div class="card" style="padding:0;overflow:hidden;margin-top:var(--sp-4)">
+      <table class="chart-table">
+        <thead><tr><th>Pos</th><th></th><th>Song</th><th>Artist</th><th style="text-align:center">Pk</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+// ── 🕰️ ERA TIME MACHINE ───────────────────────────────────────
+function renderEraPage() {
+  setContent(`
+    <div class="page-fade">
+      <div class="feature-header era" style="border:1px solid rgba(201,168,76,0.2)">
+        <div class="section-label">Era Time Machine</div>
+        <h1 class="feature-title">🕰️ Top 40 Era Time Machine</h1>
+        <p class="feature-sub">Drag the slider to any year between 1952 and 2026 and get an immersive snapshot of that year in UK music.</p>
+        <div style="margin-top:var(--sp-6)">
+          <div class="era-year-display" id="era-year-display">1980</div>
+          <input class="era-slider" type="range" id="era-slider" min="1952" max="2026" value="1980" oninput="updateEra(this.value)">
+          <div style="display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--faint)">
+            <span>1952</span><span>1960</span><span>1970</span><span>1980</span><span>1990</span><span>2000</span><span>2010</span><span>2026</span>
+          </div>
+        </div>
+      </div>
+      <div id="era-results"></div>
+    </div>`, () => updateEra(1980));
+}
+
+function updateEra(year) {
+  document.getElementById('era-year-display').textContent=year;
+  const yearStr=String(year);
+  const keys=WEEK_INDEX.keys.filter(k=>k.startsWith(yearStr));
+  if(!keys.length) return;
+  // Build year stats from number ones
+  const yearNo1s=NUMBER_ONES.filter(n=>n.date_key.startsWith(yearStr));
+  // Most weeks at #1 this year
+  const no1Map={};
+  for(const n of yearNo1s) no1Map[n.song+'||'+n.artist]=(no1Map[n.song+'||'+n.artist]||0)+parseInt(n.consecutive_weeks);
+  const topNo1=Object.entries(no1Map).sort((a,b)=>b[1]-a[1])[0];
+  // New entries to top 10 this year (peak reached this year)
+  const newStars=[...new Set(SONGS.filter(s=>{
+    if(!s.entry) return false;
+    const yr=s.entry.slice(-4); // last 4 chars
+    return yr===yearStr && parseInt(s.peak)<=10;
+  }).map(s=>s.artist))].slice(0,6);
+  const ctx=YEAR_CTX[yearStr];
+  // Show first chart week of year
+  const firstKey=keys[0];
+  const entries=RAW_WEEKLY[firstKey]||[];
+  const top5rows=entries.slice(0,5).map(e=>{
+    const[pos,song,artist]=e;
+    return `<div style="display:flex;gap:var(--sp-3);align-items:center;padding:var(--sp-2) 0;border-bottom:1px solid var(--border)">
+      <span class="pos-cell ${parseInt(pos)===1?'pos-1':''}" style="font-size:var(--text-base)">${pos}</span>
+      <div>
+        <div class="song-link" onclick="selSong(${SONG_MAP[song+'||'+artist]??-1})" style="font-size:var(--text-sm)">${esc(song)}</div>
+        <div class="artist-link" onclick="selArtist(${ARTIST_LIST.indexOf(artist)})" style="font-size:var(--text-xs)">${esc(artist)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  const no1s_list = yearNo1s.map(n=>`<div style="padding:var(--sp-1) 0;font-size:var(--text-xs);border-bottom:1px solid rgba(255,255,255,0.04)">
+    <span class="song-link" style="color:var(--cream)">${esc(n.song)}</span> <span style="color:var(--faint)">— ${esc(n.artist)} (${n.consecutive_weeks} wk${n.consecutive_weeks>1?'s':''})</span>
+  </div>`).join('');
+  document.getElementById('era-results').innerHTML=`
+    ${ctx?`<div class="era-context"><strong>${yearStr}:</strong> ${esc(ctx)}</div>`:''}
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);margin-top:var(--sp-2)">
+      <div class="card">
+        <div class="section-label">Opening Chart — ${esc(WEEK_INDEX.labels[firstKey])}</div>
+        ${top5rows}
+        <button class="action-btn secondary" style="width:100%;margin-top:var(--sp-3)" onclick="setMode('weekly');document.getElementById('year-select').value='${yearStr}';onYearChange('${yearStr}');selWeek('${firstKey}')">See full chart →</button>
+      </div>
+      <div class="card">
+        <div class="section-label">Number Ones of ${yearStr}</div>
+        ${no1s_list||'<div class="empty-state" style="padding:var(--sp-4)">No data</div>'}
+      </div>
+    </div>
+    ${topNo1?`<div class="note-box" style="margin-top:var(--sp-4)">🏆 <strong>Song of ${yearStr}:</strong> "${esc(topNo1[0].split('||')[0])}" by ${esc(topNo1[0].split('||')[1])} spent the most time at No.1 this year</div>`:''}`;
+}
+
+// ── 🐉 WELSH ARTISTS ─────────────────────────────────────────
+function renderWelshSidebar() {
+  const q=S.query;
+  const artists=[...new Set(WELSH_SONGS.map(s=>s.artist))].sort();
+  const filtered=q?artists.filter(a=>a.toLowerCase().includes(q)):artists;
+  document.getElementById('sidebar-list').innerHTML=filtered.map(a=>{
+    const songs=WELSH_SONGS.filter(s=>s.artist===a);
+    const best=Math.min(...songs.map(s=>parseInt(s.peak)||999));
+    const badge=best===1?'<span class="badge badge-no1">No.1</span>':best<=10?'<span class="badge badge-top10">Top 10</span>':'';
+    return `<div class="s-item" onclick="selWelshArtist(${ARTIST_LIST.indexOf(a)})" role="button" tabindex="0">
+      <div class="s-item-title" style="font-size:var(--text-xs)">${esc(a)}${badge}</div>
+      <div class="s-item-sub">${songs.length} chart entr${songs.length===1?'y':'ies'}</div>
+    </div>`;
+  }).join('')||'<div class="empty-state">No Welsh artists found</div>';
+}
+
+function renderWelshPage() {
+  const artists=[...new Set(WELSH_SONGS.map(s=>s.artist))].sort();
+  const no1Artists=artists.filter(a=>WELSH_SONGS.some(s=>s.artist===a&&parseInt(s.peak)===1));
+  const top10Artists=artists.filter(a=>!no1Artists.includes(a)&&WELSH_SONGS.some(s=>s.artist===a&&parseInt(s.peak)<=10));
+  const totalHits=WELSH_SONGS.length;
+  const bios={
+    "SHIRLEY BASSEY": "Cardiff-born Dame Shirley Bassey is one of the most successful British female recording artists of all time, famous for three James Bond themes and a career spanning seven decades.",
+    "TOM JONES": "Sir Tom Jones from Pontypridd became a global superstar in the 1960s. His powerful baritone voice has powered hits from \"It's Not Unusual\" to his late-career renaissance with contemporary collaborations.",
+    "BONNIE TYLER": "Skewen-born Gaynor Hopkins adopted the name Bonnie Tyler and delivered one of rock's most iconic vocal performances on \"Total Eclipse of the Heart\", a global No.1 in 1983.",
+    "STEREOPHONICS": "From Cwmaman, the Stereophonics became one of the most successful Welsh rock acts, with a string of UK No.1 albums and hit singles from the mid-90s onwards.",
+    "MANIC STREET PREACHERS": "From Blackwood, the Manics are one of the most politically outspoken bands in British rock — and one of the few to have topped both the singles and albums charts.",
+    "DUFFY": "Nefyn-born Aimee Anne Duffy burst onto the scene in 2008 with \"Rockferry\", drawing comparisons to Dusty Springfield. \"Mercy\" became a worldwide smash.",
+    "CATATONIA": "Led by Cerys Matthews from Cardiff, Catatonia were a defining voice of the Cool Cymru movement of the late 1990s, delivering hits like \"Mulder and Scully\" and \"Road Rage\".",
+    "SHAKIN' STEVENS": "Michael Barratt from Ely, Cardiff — better known as Shakin' Stevens — became the biggest-selling singles artist of the 1980s in the UK, with a string of chart-topping rockers.",
+    "SUPER FURRY ANIMALS": "Cardiff's Super Furry Animals were one of the most creatively ambitious bands of the Britpop era, known for their bilingual work and adventurous sonic palette.",
+    "FEEDER": "From Newport, Feeder became one of the most consistent alternative rock acts of the late 90s and 2000s, with 26 chart entries and a Top 5 peak.",
+    "DAVE EDMUNDS": "Cardiff-born guitarist and producer Dave Edmunds was instrumental in the rockabilly and new wave scenes, producing hit records for himself and dozens of other artists.",
+    "AMEN CORNER": "Cardiff's Amen Corner reached No.1 with \"If Paradise Is Half As Nice\" in 1969. Their frontman Andy Fairweather Low went on a successful solo career.",
+  };
+  const cards=artists.map(a=>{
+    const songs=WELSH_SONGS.filter(s=>s.artist===a);
+    const best=Math.min(...songs.map(s=>parseInt(s.peak)||999));
+    const isNo1=best===1;
+    const badge=isNo1?'<span class="badge badge-no1">No.1</span>':best<=5?'<span class="badge badge-top5">Top 5</span>':best<=10?'<span class="badge badge-top10">Top 10</span>':'';
+    const bio=bios[a];
+    return `<div class="welsh-card${isNo1?' no1-artist':''}" onclick="selWelshArtist(${ARTIST_LIST.indexOf(a)})">
+      <div class="welsh-name"><span class="welsh-flag">🐉</span>${esc(a)}${badge}</div>
+      <div style="font-size:var(--text-xs);color:var(--muted);font-family:'DM Mono',monospace;margin-bottom:var(--sp-2)">${songs.length} chart entr${songs.length===1?'y':'ies'} · Best peak: #${best}</div>
+      ${bio?`<div style="font-size:var(--text-xs);color:var(--faint);line-height:1.5">${esc(bio.slice(0,120))}…</div>`:''}
+    </div>`;
+  }).join('');
+  setContent(`
+    <div class="page-fade">
+      <div class="feature-header welsh" style="border:1px solid rgba(196,30,58,0.3)">
+        <div class="section-label" style="color:#e06060">Welsh Music History</div>
+        <h1 class="feature-title">🐉 Welsh Artists in the UK Charts</h1>
+        <p class="feature-sub">From Shirley Bassey to the Stereophonics — every confirmed Welsh act to have charted in the UK Singles Chart, 1952–2026.</p>
+        <div class="stat-row" style="margin-top:var(--sp-5)">
+          <div class="stat-tile"><div class="stat-n">${artists.length}</div><div class="stat-l">Welsh Artists</div></div>
+          <div class="stat-tile"><div class="stat-n">${no1Artists.length}</div><div class="stat-l">Welsh No.1 Artists</div></div>
+          <div class="stat-tile"><div class="stat-n">${totalHits}</div><div class="stat-l">Total Chart Entries</div></div>
+        </div>
+      </div>
+      <div class="note-box">🐉 This database covers confirmed Welsh-born or Wales-based artists with UK chart entries. Use the sidebar to find a specific artist.</div>
+      <div class="welsh-grid">${cards}</div>
+    </div>`);
+}
+function selWelshArtist(ni) { const name=typeof ni==='number'?ARTIST_LIST[ni]:ni;
+  const songs=WELSH_SONGS.filter(s=>s.artist===name);
+  if(!songs.length){selArtist(name);return;}
+  songs.sort((a,b)=>(parseInt(a.peak)||999)-(parseInt(b.peak)||999));
+  const best=Math.min(...songs.map(s=>parseInt(s.peak)||999));
+  const rows=songs.map(s=>{
+    const p=parseInt(s.peak),pc=peakClass(p);
+    return `<tr>
+      <td><span class="song-link" onclick="selSong(${SONG_MAP[s.song+'||'+s.artist]??-1})">${esc(s.song)}</span></td>
+      <td style="text-align:center"><span class="peak-chip ${pc}">${s.peak}</span></td>
+      <td style="font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--muted)">${s.weeks} wks</td>
+      <td style="font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--muted)">${esc(s.entry)}</td>
+    </tr>`;
+  }).join('');
+  setContent(`
+    <div class="card page-fade">
+      <div class="section-label" style="color:#e06060">🐉 Welsh Artist</div>
+      <h1 style="font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);margin-bottom:var(--sp-2)">${esc(name)}</h1>
+      <p style="color:var(--muted);font-size:var(--text-sm);margin-bottom:var(--sp-5)">${songs.length} chart entries · Best peak: #${best}</p>
+      <div class="section-label">UK Chart History</div>
+      <table class="chart-table">
+        <thead><tr><th>Song</th><th style="text-align:center">Peak</th><th>Weeks</th><th>Entry</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`);
+}
+
+// ── ⭐ ONE-HIT WONDERS ────────────────────────────────────────
+function getFilteredOhw() {
+  let list=ONE_HIT_W;
+  const q=S.query;
+  const dec=S.ohwDecade;
+  if(q) list=list.filter(o=>o.h.toLowerCase().includes(q)||o.a.toLowerCase().includes(q));
+  if(dec) {
+    const yr0=parseInt(dec.slice(0,4));
+    list=list.filter(o=>{
+      if(!o.e) return false;
+      const yr=parseInt(o.e.slice(-4));
+      return yr>=yr0&&yr<yr0+10;
+    });
+  }
+  return list;
+}
+function renderOhwSidebar() {
+  const list=getFilteredOhw();
+  document.getElementById('sidebar-list').innerHTML=list.map(o=>
+    `<div class="s-item" onclick="scrollToOhw(o.a)" role="button" tabindex="0">
+      <div class="s-item-title" style="font-size:var(--text-xs)">${esc(o.h)}${o.p===1?'<span class="badge badge-no1">No.1</span>':''}</div>
+      <div class="s-item-sub">${esc(o.a)}</div>
+    </div>`).join('')||'<div class="empty-state">No results</div>';
+}
+function scrollToOhw(artist) {
+  const el=document.querySelector(`[data-ohw="${artist.replace(/"/g,'&quot;')}"]`);
+  if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.background='rgba(201,168,76,0.1)';setTimeout(()=>el.style.background='',1200);}
+}
+function renderOhwPage() {
+  const list=getFilteredOhw();
+  // Spotlight: random No.1 one-hit wonder
+  const no1ohw=ONE_HIT_W.filter(o=>o.p===1);
+  const spotlight=no1ohw[Math.floor(Math.random()*no1ohw.length)];
+  const rows=list.map(o=>{
+    const pc=peakClass(o.p);
+    return `<tr data-ohw="${esc(o.a)}">
+      <td><span class="song-link" onclick="selSong(${SONG_MAP[o.h+'||'+o.a]??-1})">${esc(o.h)}</span></td>
+      <td><span class="artist-link" onclick="selArtist(${ARTIST_LIST.indexOf(o.a)})">${esc(o.a)}</span></td>
+      <td style="text-align:center"><span class="peak-chip ${pc}">${o.p}</span></td>
+      <td style="font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--muted)">${o.w} wks</td>
+      <td style="font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--faint)">${esc(o.e)}</td>
+      <td style="font-family:'DM Mono',monospace;font-size:var(--text-xs);color:var(--faint)">${o.t} total</td>
+    </tr>`;
+  }).join('');
+  setContent(`
+    <div class="page-fade">
+      ${spotlight?`
+      <div class="ohw-spotlight">
+        <div class="ohw-label">⭐ Spotlight — One-Hit Wonder No.1</div>
+        <div class="ohw-song" style="cursor:pointer" onclick="selSong(${SONG_MAP[spotlight.h+'||'+spotlight.a]??-1})">${esc(spotlight.h)}</div>
+        <div class="ohw-artist">${esc(spotlight.a)}</div>
+        <div class="ohw-stats">
+          <div class="ohw-stat"><div class="ohw-stat-n">No.1</div><div class="ohw-stat-l">Peak position</div></div>
+          <div class="ohw-stat"><div class="ohw-stat-n">${spotlight.w}</div><div class="ohw-stat-l">Weeks on chart</div></div>
+          <div class="ohw-stat"><div class="ohw-stat-n">${spotlight.t}</div><div class="ohw-stat-l">Total chart entries</div></div>
+          <div class="ohw-stat"><div class="ohw-stat-n">1</div><div class="ohw-stat-l">Top 5 hit (ever)</div></div>
+        </div>
+        <div style="font-size:var(--text-xs);color:var(--faint);margin-top:var(--sp-3)">Spotlight changes on each visit — reload to discover another</div>
+      </div>`:''}
+      <div class="card-hero">
+        <div class="section-label">Hall of Fame</div>
+        <h1 style="font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);margin-bottom:var(--sp-2)">⭐ One-Hit Wonder Hall of Fame</h1>
+        <p style="color:var(--muted);font-size:var(--text-sm)">Artists with exactly one UK Top 5 entry — ${ONE_HIT_W.length.toLocaleString()} artists qualify. Use the decade filter to browse by era.</p>
+        <div class="stat-row" style="margin-top:var(--sp-4)">
+          <div class="stat-tile"><div class="stat-n">${ONE_HIT_W.length.toLocaleString()}</div><div class="stat-l">Qualify</div></div>
+          <div class="stat-tile"><div class="stat-n">${no1ohw.length}</div><div class="stat-l">Reached No.1</div></div>
+          <div class="stat-tile"><div class="stat-n">1</div><div class="stat-l">Top 5 hit (definition)</div></div>
+        </div>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden">
+        <table class="chart-table">
+          <thead><tr><th>Hit</th><th>Artist</th><th style="text-align:center">Peak</th><th>Weeks</th><th>First Charted</th><th>Total Entries</th></tr></thead>
+          <tbody>${rows||'<tr><td colspan="6" class="empty-state">No results</td></tr>'}</tbody>
+        </table>
+      </div>
+    </div>`);
+}
+
+// ── WELCOME ───────────────────────────────────────────────────
+function renderStatsPage() {
+  const years = CHART_STATS;
+  const maxAvgWks = Math.max(...years.map(y=>y.avgWks));
+  const maxNewEnt = Math.max(...years.map(y=>y.newEntries));
+  const maxTop10  = Math.max(...years.map(y=>y.top10New));
+
+  function barRow(label, val, max, colour) {
+    const pct = max>0 ? Math.round(val/max*100) : 0;
+    return `<div class="stat-bar-row">
+      <span class="stat-bar-year">${label}</span>
+      <div class="stat-bar-track"><div class="stat-bar-fill" style="width:${pct}%;background:${colour}"></div></div>
+      <span class="stat-bar-val">${typeof val==='number'&&val%1!==0?val.toFixed(1):val}</span>
+    </div>`;
+  }
+
+  // Build chart rows — one per decade for compact view, full for detailed
+  const byDecade = {};
+  for (const y of years) {
+    const dec = Math.floor(y.y/10)*10;
+    if (!byDecade[dec]) byDecade[dec] = [];
+    byDecade[dec].push(y);
+  }
+
+  function section(title, colour, keyFn, maxVal, unit='') {
+    return `<div class="stats-section">
+      <div class="stats-section-title" style="color:${colour}">${title}</div>
+      <div class="stat-bars">
+        ${years.filter(y=>y.y>=1953&&y.newEntries>0).map(y=>barRow(y.y, keyFn(y), maxVal, colour)).join('')}
+      </div>
+    </div>`;
+  }
+
+  // Top artists by No.1 weeks
+  const artistNo1Wks = {};
+  for (const r of NUMBER_ONES) {
+    if (!artistNo1Wks[r.artist]) artistNo1Wks[r.artist]=0;
+    artistNo1Wks[r.artist] += r.weeks;
+  }
+  const topArtists = Object.entries(artistNo1Wks).sort((a,b)=>b[1]-a[1]).slice(0,20);
+
+  // Most weeks on chart (singles)
+  const topWeeks = [...SONGS].sort((a,b)=>parseInt(b.weeks)-parseInt(a.weeks)).slice(0,20);
+
+  // Longest No.1 runs
+  const longNo1 = [...NUMBER_ONES].sort((a,b)=>b.weeks-a.weeks).slice(0,15);
+
+  setContent(`<div class="page-fade">
+    <div class="feature-header stats-header">
+      <div class="section-label">Analysis</div>
+      <h1 class="feature-title">📊 Chart Statistics</h1>
+      <p class="feature-sub">Trends, records and analysis across 70+ years of UK chart history.</p>
+    </div>
+
+    <div class="stats-tabs" id="stats-tabs">
+      <button class="stats-tab active" onclick="showStatsTab('trends')">📈 Trends by Year</button>
+      <button class="stats-tab" onclick="showStatsTab('records')">🏆 Records</button>
+      <button class="stats-tab" onclick="showStatsTab('artists')">🎤 Artist Stats</button>
+    </div>
+
+    <div id="stats-panel-trends" class="stats-panel">
+      <div class="stats-grid">
+        <div class="stats-card">
+          <h3 class="stats-card-title">Average Weeks on Chart per Year</h3>
+          <p class="stats-card-sub">Streaming era songs stay on chart far longer than vinyl/CD era singles.</p>
+          <div class="stat-bars compact">
+            ${years.filter(y=>y.y>=1953&&y.avgWks>0).map(y=>barRow(y.y, y.avgWks, maxAvgWks, 'var(--gold)')).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">New Chart Entries per Year</h3>
+          <p class="stats-card-sub">Physical era had far more weekly turnover. Streaming concentrates plays on fewer tracks.</p>
+          <div class="stat-bars compact">
+            ${years.filter(y=>y.y>=1953&&y.newEntries>0).map(y=>barRow(y.y, y.newEntries, maxNewEnt, 'var(--accent)')).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">New Top 10 Entries per Year</h3>
+          <p class="stats-card-sub">Number of different songs debuting in the Top 10 each year.</p>
+          <div class="stat-bars compact">
+            ${years.filter(y=>y.y>=1953&&y.top10New>0).map(y=>barRow(y.y, y.top10New, maxTop10, '#60c080')).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Average Entry Position per Year</h3>
+          <p class="stats-card-sub">Modern songs debut higher (lower number). Streaming drives instant chart impact.</p>
+          <div class="stat-bars compact">
+            ${years.filter(y=>y.y>=1953&&y.avgEntryPos>0).map(y=>barRow(y.y, y.avgEntryPos, 100, '#a080e0')).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="stats-panel-records" class="stats-panel" style="display:none">
+      <div class="stats-grid">
+        <div class="stats-card">
+          <h3 class="stats-card-title">Longest Singles No.1 Runs</h3>
+          <div class="stats-table">
+            ${longNo1.map((r,i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(r.song)}<br><small>${esc(r.artist)}</small></span>
+              <span class="stats-val">${r.weeks}w</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Most Weeks on Chart (Singles)</h3>
+          <div class="stats-table">
+            ${topWeeks.map((s,i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(s.song)}<br><small>${esc(s.artist)}</small></span>
+              <span class="stats-val">${s.weeks}w</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Longest Album No.1 Runs</h3>
+          <div class="stats-table">
+            ${[...ALBUM_NO1S].sort((a,b)=>b.weeks-a.weeks).slice(0,15).map((r,i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(r.album)}<br><small>${esc(r.artist)}</small></span>
+              <span class="stats-val">${r.weeks}w</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Most Weeks on Chart (Albums)</h3>
+          <div class="stats-table">
+            ${[...ALBUMS].sort((a,b)=>parseInt(b.weeks)-parseInt(a.weeks)).slice(0,15).map((a,i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(a.album)}<br><small>${esc(a.artist)}</small></span>
+              <span class="stats-val">${a.weeks}w</span>
+            </div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="stats-panel-artists" class="stats-panel" style="display:none">
+      <div class="stats-grid">
+        <div class="stats-card">
+          <h3 class="stats-card-title">Most Weeks at No.1 (Singles)</h3>
+          <div class="stats-table">
+            ${topArtists.map(([art,wks],i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(art)}</span>
+              <span class="stats-val">${wks}w</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Most No.1 Singles</h3>
+          <div class="stats-table">
+            ${Object.entries(NUMBER_ONES.reduce((acc,r)=>{acc[r.artist]=(acc[r.artist]||new Set());acc[r.artist].add(r.song);return acc;},{})).map(([a,s])=>([a,s.size])).sort((a,b)=>b[1]-a[1]).slice(0,20).map(([art,cnt],i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(art)}</span>
+              <span class="stats-val">${cnt}</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Most Charted Singles</h3>
+          <div class="stats-table">
+            ${Object.entries(SONGS.reduce((acc,s)=>{acc[s.artist]=(acc[s.artist]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]).slice(0,20).map(([art,cnt],i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(art)}</span>
+              <span class="stats-val">${cnt}</span>
+            </div>`).join('')}
+          </div>
+        </div>
+        <div class="stats-card">
+          <h3 class="stats-card-title">Most No.1 Albums</h3>
+          <div class="stats-table">
+            ${Object.entries(ALBUM_NO1S.reduce((acc,r)=>{acc[r.artist]=(acc[r.artist]||new Set());acc[r.artist].add(r.album);return acc;},{})).map(([a,s])=>([a,s.size])).sort((a,b)=>b[1]-a[1]).slice(0,20).map(([art,cnt],i)=>`<div class="stats-row">
+              <span class="stats-rank">${i+1}</span>
+              <span class="stats-name">${esc(art)}</span>
+              <span class="stats-val">${cnt}</span>
+            </div>`).join('')}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>`);
+}
+function showStatsTab(tab) {
+  document.querySelectorAll('.stats-tab').forEach((t,i)=>t.classList.toggle('active',['trends','records','artists'][i]===tab));
+  ['trends','records','artists'].forEach(t=>{ const el=document.getElementById('stats-panel-'+t); if(el) el.style.display=t===tab?'block':'none'; });
+}
+
+
+function renderWelcome() {
+  const wkCount=WEEK_INDEX.keys.length;
+  const no1Count=NUMBER_ONES.length;
+  setContent(`
+    <div class="welcome-wrap page-fade">
+      <div class="welcome-eyebrow">The Complete Archive</div>
+      <h1 class="welcome-headline">Every UK chart<br>since <span>1952</span></h1>
+      <p class="welcome-body">${SONGS.length.toLocaleString()} singles & ${ALBUMS.length.toLocaleString()} albums across ${wkCount.toLocaleString()} weekly charts — from Al Martino to Beyoncé. The most complete freely-browsable archive of UK chart history.</p>
+      <div class="welcome-cta">
+        <div class="cta-label">Most popular feature</div>
+        <div class="cta-question">🎂 What was No.1 on your birthday?</div>
+        <div class="cta-actions">
+          <button class="action-btn" onclick="setMode('birthday')">Find My Birthday No.1s →</button>
+          <button class="action-btn secondary" onclick="setMode('date')">Explore Any Date</button>
+        </div>
+      </div>
+      <div class="welcome-links">
+        <button class="welcome-link" onclick="setMode('songs')">🎵 Singles A–Z</button>
+        <button class="welcome-link" onclick="setMode('alb-songs')">💿 Albums A–Z</button>
+        <button class="welcome-link" onclick="setMode('no1')">★ Singles No.1s</button>
+        <button class="welcome-link" onclick="setMode('alb-no1')">★ Album No.1s</button>
+        <button class="welcome-link" onclick="setMode('xmas')">🎄 Christmas No.1s</button>
+        <button class="welcome-link" onclick="setMode('era')">🕰️ Era Time Machine</button>
+        <button class="welcome-link" onclick="setMode('ohw')">⭐ One-Hit Wonders</button>
+      </div>
+      <div class="stat-row">
+        <div class="stat-tile"><div class="stat-n">${SONGS.length.toLocaleString()}</div><div class="stat-l">Chart Singles</div></div>
+        <div class="stat-tile"><div class="stat-n">${ALBUMS.length.toLocaleString()}</div><div class="stat-l">Chart Albums</div></div>
+        <div class="stat-tile"><div class="stat-n">${wkCount.toLocaleString()}</div><div class="stat-l">Singles Charts</div></div>
+        <div class="stat-tile"><div class="stat-n">${ALB_WEEK_INDEX.keys.length.toLocaleString()}</div><div class="stat-l">Albums Charts</div></div>
+      </div>
+    </div>`);
+}
+
+
+// ══════════════════════════════════════════════════════════════
+// ALBUM FUNCTIONS
+// ══════════════════════════════════════════════════════════════
+
+// ── Album year select ─────────────────────────────────────────
+function buildAlbYearSelect() {
+  const years = [...new Set(ALB_WEEK_INDEX.keys.map(k=>k.slice(0,4)))].sort();
+  const sel = document.getElementById('year-select');
+  if(!sel) return;
+  // Store original options for singles, build album years too
+  // We swap them based on mode — store on dataset
+  sel.dataset.albYears = JSON.stringify(years);
+}
+
+function applyAlbYearSelect() {
+  const sel = document.getElementById('year-select');
+  if(!sel) return;
+  const years = JSON.parse(sel.dataset.albYears||'[]');
+  if(!S.albYear) S.albYear = years[years.length-1]||'2024';
+  sel.innerHTML = years.map(y=>`<option value="${y}"${y===S.albYear?' selected':''}>${y}</option>`).join('');
+  sel.onchange = ()=>{ S.albYear=sel.value; S.albWeekKey=null; renderAlbWeeklySidebar(); };
+}
+
+// ── Albums A–Z ────────────────────────────────────────────────
+function getFilteredAlbs() {
+  let list = ALBUMS;
+  if(S.albLetter) list = list.filter(a=>a.album[0]===S.albLetter||(S.albLetter==='#'&&!/^[A-Z]/i.test(a.album[0])));
+  if(S.albQuery) {
+    const q=S.albQuery.toLowerCase();
+    list = list.filter(a=>a.album.toLowerCase().includes(q)||a.artist.toLowerCase().includes(q));
+  }
+  return list;
+}
+function getFilteredAlbsSorted() { return getFilteredAlbs(); }
+
+function renderAlbSidebar() {
+  S.albLetter = S.albLetter||'';
+  const all = getFilteredAlbs();
+  const start = S.albPage*PG, end = start+PG;
+  const page = all.slice(start,end);
+  document.getElementById('sidebar-list').innerHTML = page.map((a,i)=>`
+    <button class="list-item" onclick="selAlb(${ALB_MAP[a.album+'||'+a.artist]})">
+      <div class="li-primary">${a.album}</div>
+      <div class="li-secondary">${a.artist}</div>
+      <div class="li-meta">Peak: ${a.peak} · ${a.weeks}wk</div>
+    </button>`).join('');
+  document.getElementById('sidebar-list').insertAdjacentHTML('beforeend',
+    mkPagination(all.length, S.albPage, n=>{S.albPage=n;renderAlbSidebar();}));
+}
+
+function selAlb(idx) {
+  const a = typeof idx==='number' ? ALBUMS[idx] : idx;
+  if(!a) return;
+  const p=parseInt(a.peak), isNo1=p===1;
+  const pLabel = isNo1 ? '★ No.1' : '#'+a.peak;
+  const reRelMatch = a.album.match(/\{(\d{4})\}/);
+  const isReRelease = !!reRelMatch;
+  const origAlbum = isReRelease ? a.album.replace(/\s*\{\d{4}\}/,'') : null;
+  const trajKey = a.album + '||' + a.artist;
+  const traj = ALB_TRAJ[trajKey] || [];
+  let trajHtml = '';
+  if (traj.length > 0) {
+    const cells = traj.map(([dk,pos]) => {
+      const lbl = ALB_WEEK_INDEX.labels[dk] ? ALB_WEEK_INDEX.labels[dk].split('-')[0].trim() : dk;
+      const cls = pos===1?'tr-no1':pos<=3?'tr-top3':pos<=10?'tr-top10':pos<=40?'tr-top40':'tr-outer';
+      return `<span class="traj-cell ${cls}" title="Week ending ${lbl}: #${pos}">${pos}</span>`;
+    }).join('');
+    trajHtml = `<div class="traj-section">
+      <div class="traj-label">Chart Run <span class="traj-weeks">${traj.length} week${traj.length>1?'s':''}</span></div>
+      <div class="traj-track">${cells}</div>
+      <div class="traj-legend">
+        <span class="traj-cell tr-no1 sm">1</span><span class="tl">No.1</span>
+        <span class="traj-cell tr-top3 sm">3</span><span class="tl">Top 3</span>
+        <span class="traj-cell tr-top10 sm">10</span><span class="tl">Top 10</span>
+        <span class="traj-cell tr-top40 sm">40</span><span class="tl">Top 40</span>
+      </div>
+    </div>`;
+  }
+  const multiRuns = ALBUM_NO1S.filter(r=>r.album===a.album && r.artist===a.artist);
+  let multiHtml = multiRuns.length > 1 ? `<div class="multi-no1-badge">🔄 Reached No.1 ${multiRuns.length} times</div>` : '';
+  const csvRows = [['Week','Position'], ...traj.map(([dk,pos])=>[ALB_WEEK_INDEX.labels[dk]||dk,pos])];
+  const csvData = encodeURIComponent(csvRows.map(r=>r.join(',')).join('\n'));
+  const csvBtn = traj.length > 0 ? `<a class="action-btn secondary" style="text-decoration:none;display:inline-block;margin-top:var(--sp-2)" href="data:text/csv;charset=utf-8,${csvData}" download="${a.album.replace(/[^\w]/g,'_')}_chart_run.csv">⬇ Export Chart Run CSV</a>` : '';
+  setContent(`<div class="card page-fade">
+    <div class="section-label">${esc(a.artist)}</div>
+    <div style="display:flex;align-items:baseline;gap:var(--sp-2);flex-wrap:wrap">
+      <h1 style="font-family:'Playfair Display',serif;font-size:var(--text-3xl);font-weight:900;color:var(--cream);margin-bottom:var(--sp-2);line-height:1.1">${esc(isReRelease?origAlbum:a.album)}</h1>
+      ${isReRelease?`<span class="badge badge-rerelease">Re-release ${reRelMatch[1]}</span>`:''}
+    </div>
+    ${multiHtml}
+    <div class="stat-row">
+      <div class="stat-tile"><div class="stat-n${isNo1?' gold':''}">${pLabel}</div><div class="stat-l">Peak Position</div></div>
+      <div class="stat-tile"><div class="stat-n">${a.weeks}</div><div class="stat-l">Weeks on Chart</div></div>
+      <div class="stat-tile" style="flex:2"><div class="stat-n" style="font-size:var(--text-lg)">${esc(a.entry)}</div><div class="stat-l">Chart Entry</div></div>
+    </div>
+    ${trajHtml}
+    <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-top:var(--sp-4)">
+      <button class="action-btn secondary" onclick="selAlbArtist(${ALB_ARTIST_LIST.indexOf(a.artist)})">All albums by ${esc(a.artist)} →</button>
+      ${csvBtn}
+    </div>
+  </div>`);
+}
+
+// ── Album Artists A–Z ─────────────────────────────────────────
+function getFilteredAlbArtists() {
+  let list = ALB_ARTIST_LIST;
+  if(S.albLetter) list = list.filter(a=>a[0]===S.albLetter||(S.albLetter==='#'&&!/^[A-Z]/i.test(a[0])));
+  if(S.albQuery) { const q=S.albQuery.toLowerCase(); list=list.filter(a=>a.toLowerCase().includes(q)); }
+  return list;
+}
+
+function renderAlbArtistSidebar() {
+  S.albLetter = S.albLetter||'';
+  const all = getFilteredAlbArtists();
+  const page = all.slice(S.albPage*PG, S.albPage*PG+PG);
+  document.getElementById('sidebar-list').innerHTML = page.map(artist=>`
+    <button class="list-item" onclick="selAlbArtist(${ALB_ARTIST_LIST.indexOf(artist)})">
+      <div class="li-primary">${artist}</div>
+      <div class="li-secondary">${ALB_ARTIST_IDX[artist].length} album${ALB_ARTIST_IDX[artist].length!==1?'s':''}</div>
+    </button>`).join('');
+  document.getElementById('sidebar-list').insertAdjacentHTML('beforeend',
+    mkPagination(all.length, S.albPage, n=>{S.albPage=n;renderAlbArtistSidebar();}));
+}
+
+function selAlbArtist(idx) {
+  const artist = ALB_ARTIST_LIST[idx];
+  if(!artist) return;
+  const albums = ALB_ARTIST_IDX[artist].sort((a,b)=>parseInt(a.peak)-parseInt(b.peak));
+  setContent(`<div class="artist-detail page-fade">
+    <div class="song-detail-eyebrow">🎤 Album Artist</div>
+    <h2 class="song-detail-title">${artist}</h2>
+    <div class="song-detail-stats">
+      <span>${albums.length} charting album${albums.length!==1?'s':''}</span>
+      <span>Best peak: #${albums[0].peak}</span>
+    </div>
+    <div class="song-detail-section">Discography</div>
+    <div class="artist-albums-grid">
+      ${albums.map(a=>`<div class="aa-row" onclick="selAlb(${ALB_MAP[a.album+'||'+a.artist]})">
+        <span class="${peakClass(a.peak)} aa-peak">#${a.peak}</span>
+        <div class="aa-info">
+          <div class="aa-title">${a.album}</div>
+          <div class="aa-meta">${a.weeks} weeks · First: ${a.entry}</div>
+        </div>
+      </div>`).join('')}
+    </div>
+  </div>`);
+}
+
+// ── Weekly Albums ─────────────────────────────────────────────
+function renderAlbWeeklySidebar() {
+  applyAlbYearSelect();
+  const yr = S.albYear;
+  const weeks = ALB_WEEK_INDEX.keys.filter(k=>k.startsWith(yr));
+  document.getElementById('sidebar-list').innerHTML = weeks.map(dk=>`
+    <button class="list-item${S.albWeekKey===dk?' active':''}" onclick="selAlbWeek('${dk}')">
+      <div class="li-primary">${ALB_WEEK_INDEX.labels[dk]||dk}</div>
+    </button>`).join('');
+  if(weeks.length && !S.albWeekKey) selAlbWeek(weeks[weeks.length-1]);
+}
+
+function selAlbWeek(dk) {
+  S.albWeekKey = dk;
+  if(S.mode==='alb-weekly') {
+    document.querySelectorAll('#sidebar-list .list-item').forEach(b=>{
+      b.classList.toggle('active', b.onclick?.toString().includes(dk));
+    });
+  }
+  const entries = RAW_ALB_WEEKLY[dk]||[];
+  const label = ALB_WEEK_INDEX.labels[dk]||dk;
+  setContent(`<div class="weekly-detail page-fade">
+    <div class="song-detail-eyebrow">💿 Album Chart</div>
+    <h2 class="weekly-title">${label}</h2>
+    <div class="weekly-grid">
+      <div class="wg-head"><span>Pos</span><span>Album</span><span>Artist</span><span>Move</span><span>Peak</span><span>Wks</span></div>
+      ${entries.map(e=>`<div class="wg-row" onclick="selAlb(${ALB_MAP[e[1]+'||'+e[2]]??-1})">
+        <span class="wg-pos ${e[0]==='1'?'pos-gold':''}">${e[0]}</span>
+        <span class="wg-song">${e[1]}</span>
+        <span class="wg-artist">${e[2]}</span>
+        <span class="wg-move">${moveHtml(e[0],e[3])}</span>
+        <span>${e[4]}</span>
+        <span>${e[5]}</span>
+      </div>`).join('')}
+    </div>
+  </div>`);
+}
+
+// ── Album No.1s ───────────────────────────────────────────────
+function getFilteredAlbNo1s() {
+  let list = ALBUM_NO1S;
+  if(S.albNo1Decade) list = list.filter(r=>r.date_key.startsWith(S.albNo1Decade));
+  if(S.albQuery) {
+    const q=S.albQuery.toLowerCase();
+    list = list.filter(r=>r.album.toLowerCase().includes(q)||r.artist.toLowerCase().includes(q));
+  }
+  return list;
+}
+
+function renderAlbNo1Sidebar() {
+  const all = getFilteredAlbNo1s();
+  document.getElementById('sidebar-list').innerHTML = all.map((r,i)=>`
+    <button class="list-item" onclick="scrollToAlbNo1(${i})">
+      <div class="li-primary">${r.album}</div>
+      <div class="li-secondary">${r.artist}</div>
+      <div class="li-meta">${r.weeks} week${r.weeks!==1?'s':''} · ${r.first_week}</div>
+    </button>`).join('');
+}
+
+function scrollToAlbNo1(idx) {
+  const el = document.getElementById('alb-no1-'+idx);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function renderAlbNo1Page() {
+  const list = getFilteredAlbNo1s();
+  const byArtist = {};
+  ALBUM_NO1S.forEach(r=>{ if(!byArtist[r.artist]) byArtist[r.artist]=0; byArtist[r.artist]+=r.weeks; });
+  const topArtist = Object.entries(byArtist).sort((a,b)=>b[1]-a[1])[0];
+  const totalRuns = ALBUM_NO1S.length;
+  const longestRun = ALBUM_NO1S.reduce((m,r)=>r.weeks>m.weeks?r:m);
+
+  setContent(`<div class="no1-page page-fade">
+    <div class="no1-header">
+      <div class="song-detail-eyebrow">💿 Albums</div>
+      <h2 class="no1-title">Album Number Ones</h2>
+      <p class="no1-subtitle">${totalRuns} No.1 runs, 1956–2024</p>
+      <div class="no1-summary-row">
+        <div class="no1-stat"><div class="no1-stat-n">${longestRun.weeks}</div><div class="no1-stat-l">Longest run (${longestRun.album})</div></div>
+        <div class="no1-stat"><div class="no1-stat-n">${byArtist[topArtist[0]]}</div><div class="no1-stat-l">Most weeks No.1 (${topArtist[0]})</div></div>
+        <div class="no1-stat"><div class="no1-stat-n">${Object.keys(byArtist).length}</div><div class="no1-stat-l">Artists reached No.1</div></div>
+      </div>
+    </div>
+    <div class="no1-list">
+      ${list.map((r,i)=>`<div class="no1-run ${r.weeks>=4?'long-run':''}" id="alb-no1-${i}">
+        <div class="no1-run-weeks">${r.weeks}<span>wk${r.weeks!==1?'s':''}</span></div>
+        <div class="no1-run-info">
+          <div class="no1-run-song">${r.album}</div>
+          <div class="no1-run-artist">${r.artist}</div>
+          <div class="no1-run-date">${r.first_week}</div>
+        </div>
+        <button class="no1-run-view" onclick="selAlb(${ALB_MAP[r.album+'||'+r.artist]??-1})">View</button>
+      </div>`).join('')}
+    </div>
+  </div>`);
+
+}
+
+// ── onSearch extension for album modes ────────────────────────
+// Album modes handled in original functions
+
+
+// ── INIT ──────────────────────────────────────────────────────
+
+// Show loading overlay
+(function() {
+  var overlay = document.createElement("div");
+  overlay.id = "loading-overlay";
+  overlay.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(13,11,6,0.97);display:flex;align-items:center;justify-content:center;z-index:99999;flex-direction:column;";
+  overlay.innerHTML = '<div style="color:#ede8df;font-family:DM Sans,sans-serif;text-align:center;">' +
+    '<div style="font-family:Playfair Display,serif;font-size:2rem;margin-bottom:1rem;color:#c9a84c;">Loading UK Charts Data\u2026</div>' +
+    '<div style="width:220px;height:5px;background:#2a2014;border-radius:3px;overflow:hidden;">' +
+    '<div id="load-bar" style="width:0%;height:100%;background:linear-gradient(90deg,#8a6e2f,#c9a84c);transition:width 0.3s;"></div></div>' +
+    '<div id="load-status" style="margin-top:0.75rem;font-size:0.85rem;color:#9a8a6e;">Fetching data\u2026</div></div>';
+  document.body.appendChild(overlay);
+})();
+
+Promise.all([
+  fetch("data/singles.json"),
+  fetch("data/albums.json"),
+  fetch("data/extras.json")
+]).then(function(responses) {
+  for (var i = 0; i < responses.length; i++) {
+    if (!responses[i].ok) throw new Error("Failed to load data chunk " + (i+1));
+  }
+  document.getElementById("load-status").textContent = "Parsing singles\u2026";
+  document.getElementById("load-bar").style.width = "30%";
+  return responses[0].json().then(function(d1) {
+    document.getElementById("load-status").textContent = "Parsing albums\u2026";
+    document.getElementById("load-bar").style.width = "50%";
+    return responses[1].json().then(function(d2) {
+      document.getElementById("load-status").textContent = "Parsing extras\u2026";
+      document.getElementById("load-bar").style.width = "70%";
+      return responses[2].json().then(function(d3) {
+        return Object.assign({}, d1, d2, d3);
+      });
+    });
+  });
+})
+  .then(function(d) {
+    document.getElementById("load-bar").style.width = "90%";
+    document.getElementById("load-status").textContent = "Initialising\u2026";
+
+    RAW_SONGS      = d.RAW_SONGS;
+    RAW_WEEKLY     = d.RAW_WEEKLY;
+    WEEK_INDEX     = d.WEEK_INDEX;
+    NUMBER_ONES    = d.NUMBER_ONES;
+    RAW_ALBUMS     = d.RAW_ALBUMS;
+    RAW_ALB_WEEKLY = d.RAW_ALB_WEEKLY;
+    ALB_WEEK_INDEX = d.ALB_WEEK_INDEX;
+    ALBUM_NO1S     = d.ALBUM_NO1S;
+    SONG_TRAJ      = d.SONG_TRAJ;
+    ALB_TRAJ       = d.ALB_TRAJ;
+    CHART_STATS    = d.CHART_STATS;
+    XMAS_NO1S      = d.XMAS_NO1S;
+    ONE_HIT_W      = d.ONE_HIT_W;
+    WELSH_SONGS    = d.WELSH_SONGS;
+    YEAR_CTX       = d.YEAR_CTX;
+
+    buildIndexes();
+    buildAlphaBar();
+    buildYearSelect();
+    buildAlbYearSelect();
+    renderWelcome();
+    document.getElementById("sidebar").style.display = "none";
+
+    document.getElementById("load-bar").style.width = "100%";
+    setTimeout(function() {
+      var ov = document.getElementById("loading-overlay");
+      ov.style.transition = "opacity 0.4s";
+      ov.style.opacity = "0";
+      setTimeout(function() { ov.remove(); }, 400);
+    }, 200);
+  })
+  .catch(function(err) {
+    console.error(err);
+    var s = document.getElementById("load-status");
+    if (s) { s.textContent = "Error loading data: " + err.message; s.style.color = "#f87171"; }
+  });
+</script>
+</body>
+</html>

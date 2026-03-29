@@ -1,0 +1,26 @@
+# UK Charts Archive
+
+> The complete UK singles and albums chart archive from 1952 to present.
+
+This site provides a searchable, browsable archive of every UK singles and albums chart since the first chart was published on 14 November 1952. Data is sourced from the Official Charts Company.
+
+## Features
+- Every UK Number One single and album
+- Full weekly Top 100 singles and albums charts
+- Search by artist, song title, or date
+- Birthday Number One lookup
+- Welsh artists in the UK charts
+- One-Hit Wonder Hall of Fame
+- Chart statistics and trends
+- Top 40 Era Time Machine (1952-present)
+
+## Data Coverage
+- Singles charts: 1952 to present (weekly updates)
+- Albums charts: 1956 to present (weekly updates)
+- Over 70 years of British music chart history
+
+## URL
+https://ukcharts.netlify.app
+
+## Contact
+This is a personal archive project. Data is presented for educational and entertainment purposes.

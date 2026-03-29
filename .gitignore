@@ -1,0 +1,10 @@
+# Local Netlify folder
+.netlify
+
+# Large source data files
+*.xlsx
+*.pyc
+__pycache__/
+
+# Extracted intermediate files
+extracted/
